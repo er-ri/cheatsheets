@@ -4,6 +4,7 @@
 [Day 3](#day-3)  
 [Day 4](#day-4)  
 [Day 5](#day-5)  
+[Day 6](#day-6)
 
 ## Day 1
 `Apache Spark` -> An open-source unified analytics engine for **large-scale** data processing.  
@@ -12,14 +13,14 @@
 `Amazon SageMaker Object Detection` -> MXNet algorithm detects and **classifies** objects in images using a single deep neural network.   
 `Amazon Rekognition` -> Offers pre-trained and customizable computer vision (CV) capabilities to **extract** information(*metadata*) and insights from your images and videos. **Celebrity** detection(Note: can't handle the very specific classification task)   
 `Random Cut Forest` -> unsupervised, detect **anomalous** data points within a data set.    
-`Elasticsearch(Amazon)` -> A distributed, RESTful *search* and *analytics* engine capable of addressing a growing number of use cases.   
-`SageMaker Ground Truth` -> A data **labeling service** that makes it easy to label data(option: Amazon Mechanical Turk)   
+`Elasticsearch(Amazon)` -> A distributed, RESTful *search* and *analytics* engine capable of addressing a growing number of use cases. Individual **server** required.   
+`SageMaker Ground Truth` -> A data **labeling service** that makes it easy to label data(option: *Amazon Mechanical Turk*)   
 `Inference pipeline` -> Preprocessing, predictions, and post-processing on real-time and batch inference requests.  
 `Amazon IoT Greengrass` -> Software, extends *cloud capabilities* to **local devices**.  
 `Amazon SageMaker Neo` -> Enables developers to **optimize** machine learning (ML) models for inference on SageMaker in the cloud and supported devices at the **edge**.   
 `Nvidia jetson edge` -> AI computing platform for GPU-accelerated parallel processing in mobile embedded ... Robotics and Edge Computing.  
-`AWS DeepLens` -> Hardware, a deep learning-enabled **video camera**.  
-`Amazon EMR` -> A managed cluster platform that simplifies running big data frameworks, such as **Apache Hadoop** and **Apache Spark**.(File system: hdfs, emrfs, local file system)   
+`AWS DeepLens` -> *Hardware*, a deep learning-enabled **video camera**.  
+`Amazon EMR` -> A managed cluster platform that simplifies running big data frameworks, such as **Apache Hadoop** and **Apache Spark**.(File system: *hdfs*, emrfs, local file system)   
 `Splunk` -> Search, analyze and visualize all of data   
 `K-nearest neighbors(KNN)` -> Supervised, classification, regression. Uses proximity to make classifications or predictions about the **grouping** of an individual data point.  
 `Sparkmagic` -> A set of **tools** for interactively working with remote *Spark clusters* through Livy, a Spark REST server, in Jupyter notebooks.  
@@ -32,7 +33,7 @@
 | --- | --- |
 | Kinesis Data Stream | Streaming(**real-time**) ingest shards: 1MB/s or 1000 messages/s |
 | Kinesis Data Analytics | **Near real-time** analytics(SQL query), scripts out the **unneeded** data. |
-| Kinesis Data Firehose | **Not real-time**, load streams(**not** used to *stream video*) into S3, etc. **Ingest** |
+| Kinesis Data Firehose | **Not real-time**, load streams(**not** used to *stream video*) into S3, etc. **Ingest**, *JSON* -> *Parquet* or *ORC* |
 | Kinesis Video Stream | streaming video(uses Amazon S3 for backend storage) |
 
 ### Date Imputation(Missing Data)
@@ -44,6 +45,7 @@
 | Create a separate boolean column | - |
 | Fill with zeros | - |
 | Regression | - |
+|Impute with median value | Outlier exists |
 
 ### Merics
 1. Accuracy
@@ -75,8 +77,8 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Histogram` -> A graph used to represent the frequency distribution of a few data points of one variable.  
 `Scatterplot` -> Uses dots to represent values for **two different** numeric variables.  
 `One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms.  
-`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*.    
-`AWS Glue` -> A serverless Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes.  
+`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. **Scheduling** and **allocating** the resources    
+`AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. **S3 prefixes**  
 `Principal component analysis(PCA)` -> A learning algorithm that **reduces** the **dimensionality** (number of features) within a dataset while retaining as much information as possible.  
 `Seaborn distribution plot(distplot)` -> Depicts the variation in the **data distribution**.  
 `Amazon Personalize` -> A fully managed machine learning service that uses your data to generate item **recommendations** for your users.  
@@ -96,7 +98,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Amazon Polly` -> Use deep learning technologies to synthesize natural-sounding **human speech**. *Speech Marks*: starts and ends, *SSML*: control, *Lexicons*: customize  
 `Amazon Transcribe` -> Converts **audio input into text**, which opens the door for various text analytics applications on voice input.  
 `Amazon Quicksight` -> **Anomaly detection**, **forecasting**, **auto-narrative**: customize(personalized dashboard)  
-`Amazon Athena` -> An interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (**Amazon S3**) using standard **SQL**.   
+`Amazon Athena` -> An interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (**Amazon S3**) using standard **SQL**. **Serverless**   
 `Canary Deployment` -> In the beginning, the current version receives **100%** of user traffic  
 `Xavier Initialization` -> An attempt to improve the initialization of neural network **weighted inputs**, in order to avoid some traditional problems in machine learning.  
 
@@ -148,7 +150,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `A/B testing` -> **Compares** the performance of two versions of content to see which one *appeals* more to visitors/viewer.  
 `Blue/Green deployment` -> An application release model that **gradually transfers** user traffic from a previous version of an app or microservice to a nearly identical new release—both of which are running in production.  
 `Amazon Macie` -> A **data security service** that uses machine learning (ML) and pattern matching to discover and help protect your sensitive data.  
-`FM(Factorization Machines)` -> Supervised, a general-purpose supervised learning algorithm that you can use for both **classification** and **regression** tasks.  
+`FM(Factorization Machines)` -> Supervised, a general-purpose supervised learning algorithm that you can use for both **classification** and **regression** tasks. **float32** format.  
 `Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems.  
 `AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrate seamlessly with your **local** area network.  
 `AWS DeepRacer` -> An autonomous 1/18th scale race car designed to test **RL** models by racing on a physical track.  
@@ -167,10 +169,10 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 3. `Amazon Lex` top choice, `Slot Value`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
+
 ---
 
-## Day 4
-#### Note:  
+## Day 4 
 `Kinesis Producer Library (KPL)` -> Simplifies producer application development, allowing developers to achieve high write **throughput** to a *Kinesis Data Stream*.   
 `Kinesis Client Library(KCL)` -> Acts as an intermediary between your record **processing** logic and *Kinesis Data Streams*.  
 `Data Augmentation` -> A set of techniques to artificially **increase** the amount of data by generating **new data** points from existing data.  
@@ -190,8 +192,8 @@ Provides *Online Analytical Processing* (**OLAP**).
 `Pair plot` -> Plot **pairwise relationships** in a dataset.  
 `Box and Whisker plot` -> Shows how the data is **distributed** and it also shows any **outliers**.  
 `Tree map` -> An alternative way of visualising the hierarchical structure of a **Tree Diagram** while also displaying **quantities** for each category via area size.  
-`Multilayer Perceptron (MLP)` -> A fully connected multi-layer neural network.  
-`Autoregressive Integrated Moving Average (ARIMA)` -> A method for forecasting or predicting *future* outcomes based on a historical time series.  
+`Multilayer Perceptron (MLP)` -> A **fully connected** multi-layer neural network.  
+`Autoregressive Integrated Moving Average (ARIMA)` -> A method for forecasting or predicting *future* outcomes based on a historical **time series**.  
 `Amazon Forecast` -> A fully managed service that uses statistical and machine learning algorithms to deliver highly accurate **time series** forecasts.  
 `AutoML` -> Choose the best model for your time-series data. (including **DeepAR**, **ARIMA**, etc)  
 `Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
@@ -201,9 +203,9 @@ Provides *Online Analytical Processing* (**OLAP**).
 ### S3
 | Name | Type | Note |
 | --- | --- | --- |
-| Amazon S3 Standard | Frequent |Processed data |
-| Amazon S3 Glacier Instant Retrieval | Rarely accessed, requires retrieval in milliseconds. | Processed data |
-| Amazon S3 Glacier Deep Archive | Accessed once or twice in a year | Raw data |
+| Amazon S3 Standard | **Frequent** |Processed data |
+| Amazon S3 Glacier Instant Retrieval | **Rarely** accessed, requires retrieval in milliseconds. | Processed data |
+| Amazon S3 Glacier Deep Archive | Accessed **once** or twice in a year | Raw data |
 * `S3 Lifecycle Rule`: Automating the archiving or deletion of old data
 
 ### Data Distribution
@@ -224,19 +226,44 @@ Provides *Online Analytical Processing* (**OLAP**).
 
 ---
 ## Day 5
-`Within-cluster sum of squares(WSS)` -> Determining the optimal value of **k** in *k-Means* clustering.  
+`Within-cluster sum of squares(WSS)` -> Determining the **optimal value** of *k* in *k-Means* clustering.  
 `Custom inference container` -> *Amazon SageMaker*, port **8080**, requests under **2s**, compress in **tar** format.  
-`Incremental learning` -> A machine learning method where new data is incrementally added to a model, and the model is retrained on the new data.  
+`Incremental learning` -> A machine learning method where **new data** is incrementally added to a model, and the model is retrained on the new data.  
 `ResNet-50` -> A convolutional neural network(**CNN**) that is 50 layers deep.  
 `Boosting` -> A method used in machine learning to **reduce errors** in predictive data analysis.  
 `Binning(Interval Binning)` -> The process of transforming *numerical* variables into their **categorical** counterparts.  
 `Quantile Binning` -> The process of assigning the **same** number of observations to each **bin** if the number of observations is evenly divisible by the number of bins.  
-`Horovod` -> A **distributed deep learning** training framework for TensorFlow, Keras, PyTorch, and Apache MXNet.  
+`Horovod` -> A **distributed deep learning** training framework for TensorFlow, Keras, PyTorch, and Apache MXNet. **Multiple GPU**  
 
 ### Note
 1. `Hyperparameter tunning`: Run only **one** training job at a time.
 
-20
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 6
+`SVM(RBF kernel)` -> **Clustering**, can also be used for **dimensionality reduction**.  
+`Amazon Aurora` -> A fully managed relational database engine that's compatible with *MySQL* and *PostgreSQL*.  
+`AWS Glue's FindMatches` -> A new way to perform **de-duplication** as part of *Glue ETL*.  
+`RecordIO` -> The best **format** choice on models.  
+`Amazon SQS` -> Send, store, and receive messages between software components at any volume.  
+`AWS Step Functions` -> A visual **workflow service** that helps developers use AWS services to build distributed applications, automate processes, orchestrate microservices, and create data and machine learning (ML) pipelines.  
+`Amazon Simple Workflow Service` -> A fully managed **workflow service** for building scalable, resilient applications. More complex then *AWS Step Functions*.  
+`EMR File System (EMRFS)` -> An implementation of HDFS that all Amazon EMR clusters use for **reading and writing** regular files from Amazon EMR directly to *Amazon S3*.  
+`LibSVM` -> A specific **data format** for the data analysis tool LibSVM. *Glue ETL*, *Kinesis Analytics* are not supported.  
+`ImageNet` -> A large visual **database** designed for use in visual object recognition software research.  
+
+### Note
+1. A Spot interruption on the **Master node** will *terminate* the entire *cluster*, and on a **Core node**, it can lead to HDFS *data loss*.
+2. **Vanishing gradient** results from small derivates of the **sigmoid** activation function, try **ReLU**.  
+3. `BlazingText`: Labels must be prefixed with `__label__`, and the tokens within the sentence - including punctuation - should be `space` separated.
+4. `BlazingText Word2Vec mode`: The order of words **doesn't** matter, skip-gram and continuous bag of words(**CBOW**) architectures. Find *relationships* between **individual words**.
+5. **XGBoost 1.0/1.1**: CPU-only algorithms, **XGBoost 1.2/newer**: GPU, Accelerated Computing(EC2, `P3`)
+6. **Bring Your Own Containers**: Set `ENV SAGEMAKER_PROGRAM` for `train.py` in the Dockerfile.
+7. `SageMaker inter-container traffic encryption`, secured in-transit of private VPC.
+8. A large *learning rate* will **overshoot** the true minima, while a small will **slow down** convergence.
+9. A large *batch size* will **get stuck** in localized minima.
+10. SageMaker **default IAM role**, buckets' name with "sagemaker" is accessible.
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
