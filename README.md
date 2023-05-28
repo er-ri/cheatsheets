@@ -1,10 +1,14 @@
 # AWS Machine Learning Specialty Cheatsheet
+
+## Table Of Contents
 [Day 1](#day-1)  
 [Day 2](#day-2)  
 [Day 3](#day-3)  
 [Day 4](#day-4)  
 [Day 5](#day-5)  
 [Day 6](#day-6)
+
+---
 
 ## Day 1
 `Apache Spark` -> An open-source unified analytics engine for **large-scale** data processing.  
@@ -176,11 +180,11 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Kinesis Producer Library (KPL)` -> Simplifies producer application development, allowing developers to achieve high write **throughput** to a *Kinesis Data Stream*.   
 `Kinesis Client Library(KCL)` -> Acts as an intermediary between your record **processing** logic and *Kinesis Data Streams*.  
 `Data Augmentation` -> A set of techniques to artificially **increase** the amount of data by generating **new data** points from existing data.  
-`Amazon SageMaker DeepAR` -> A supervised learning algorithm for forecasting scalar (one-dimensional) time series using recurrent neural networks (**RNN**).  
+`Amazon SageMaker DeepAR` -> A supervised learning algorithm for forecasting scalar (one-dimensional) time series using *Recurrent Neural Networks* (**RNN**).  
 `Image localization` -> Aims to locate **the main single** (or most visible) object in an image.  
 `Image Classification` -> Assigning a **label** or class to an entire image.  
 `Instance Segmentation` -> Deals with detecting instances of objects and demarcating their **boundaries**.  
-`weight decay` -> A **regularization** technique by adding a small penalty, usually the L2 norm of the weights (all the weights of the model).  
+`Weight Decay` -> A **regularization** technique by adding a small penalty, usually the L2 norm of the weights (all the weights of the model).  
 `SageMaker Elastic Inference` -> Allows you to attach a **low-cost GPU** to your instance.  
 `Anaconda` -> An open-source distribution of the Python and R programming languages for **data science** that aims to simplify package management and deployment.  
 `DescribeTrainingJob(SageMaker)` -> Returns information about a job you previously initiated, check **FailureReason**.  
@@ -195,7 +199,7 @@ Provides *Online Analytical Processing* (**OLAP**).
 `Multilayer Perceptron (MLP)` -> A **fully connected** multi-layer neural network.  
 `Autoregressive Integrated Moving Average (ARIMA)` -> A method for forecasting or predicting *future* outcomes based on a historical **time series**.  
 `Amazon Forecast` -> A fully managed service that uses statistical and machine learning algorithms to deliver highly accurate **time series** forecasts.  
-`AutoML` -> Choose the best model for your time-series data. (including **DeepAR**, **ARIMA**, etc)  
+`AutoML` -> Choose the *best model* for your time-series data. (including **DeepAR**, **ARIMA**, etc)  
 `Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
 `Service control policies (SCPs)` -> A type of **organization policy** that you can use to manage permissions in your organization.  
 `Organizational Unit (OU)` -> A logical **grouping of accounts** in your organization, created using AWS Organizations.
@@ -226,7 +230,7 @@ Provides *Online Analytical Processing* (**OLAP**).
 
 ---
 ## Day 5
-`Within-cluster sum of squares(WSS)` -> Determining the **optimal value** of *k* in *k-Means* clustering.  
+`Within-cluster sum of squares(WSS)` -> Determining the **optimal value** of **k** in *k-Means* clustering.  
 `Custom inference container` -> *Amazon SageMaker*, port **8080**, requests under **2s**, compress in **tar** format.  
 `Incremental learning` -> A machine learning method where **new data** is incrementally added to a model, and the model is retrained on the new data.  
 `ResNet-50` -> A convolutional neural network(**CNN**) that is 50 layers deep.  
@@ -242,7 +246,7 @@ Provides *Online Analytical Processing* (**OLAP**).
 
 ---
 ## Day 6
-`SVM(RBF kernel)` -> **Clustering**, can also be used for **dimensionality reduction**.  
+`Support Vector Machine(SVM) with RBF kernel` -> Supervised, for **classification** and **regression**, can also be used for **dimensionality reduction**.  
 `Amazon Aurora` -> A fully managed relational database engine that's compatible with *MySQL* and *PostgreSQL*.  
 `AWS Glue's FindMatches` -> A new way to perform **de-duplication** as part of *Glue ETL*.  
 `RecordIO` -> The best **format** choice on models.  
@@ -268,11 +272,24 @@ Provides *Online Analytical Processing* (**OLAP**).
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
 ---
+## Day 7
+`AWS PrivateLink` -> Establish connectivity between **VPCs** and AWS services without exposing data to the internet.  
+`Beta Testing` -> Acceptance Testing, the end users evaluate its performance.  
+
+### Note
+1. **SSE-KMS** is used for the Amazon **S3** service. 
+2. `Kinesis Data Firehose` + `built-in lambda` is eaiser than `Kinesis Data Streams` + `Glue ETL`, as a `Glue` script is required.(for *near real-time*)
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
 ## Resources
 * AWS Skill Builder -> AWS Certified Machine Learning - Specialty Official Practice Question Set (MLS-C01 - English)
 * AWS Skill Builder -> Exam Readiness: AWS Certified Machine Learning - Specialty
 * Udemy -> AWS Certified Machine Learning Specialty 2023 - Hands On!
 * Udemy -> AWS Certified Machine Learning Specialty Full Practice Exam
+* Udemy -> AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS
+
 ---
 
 
