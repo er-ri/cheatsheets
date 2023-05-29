@@ -1,12 +1,14 @@
 # AWS Machine Learning Specialty Cheatsheet
 
 ## Table Of Contents
-[Day 1](#day-1)  
-[Day 2](#day-2)  
-[Day 3](#day-3)  
-[Day 4](#day-4)  
-[Day 5](#day-5)  
-[Day 6](#day-6)
+* [Day 1](#day-1)  
+* [Day 2](#day-2)  
+* [Day 3](#day-3)  
+* [Day 4](#day-4)  
+* [Day 5](#day-5)  
+* [Day 6](#day-6)  
+* [Day 7](#day-7)  
+* [Day 8](#day-8)
 
 ---
 
@@ -19,7 +21,6 @@
 `Random Cut Forest` -> unsupervised, detect **anomalous** data points within a data set.    
 `Elasticsearch(Amazon)` -> A distributed, RESTful *search* and *analytics* engine capable of addressing a growing number of use cases. Individual **server** required.   
 `SageMaker Ground Truth` -> A data **labeling service** that makes it easy to label data(option: *Amazon Mechanical Turk*)   
-`Inference pipeline` -> Preprocessing, predictions, and post-processing on real-time and batch inference requests.  
 `Amazon IoT Greengrass` -> Software, extends *cloud capabilities* to **local devices**.  
 `Amazon SageMaker Neo` -> Enables developers to **optimize** machine learning (ML) models for inference on SageMaker in the cloud and supported devices at the **edge**.   
 `Nvidia jetson edge` -> AI computing platform for GPU-accelerated parallel processing in mobile embedded ... Robotics and Edge Computing.  
@@ -36,7 +37,7 @@
 | Name | Note |
 | --- | --- |
 | Kinesis Data Stream | Streaming(**real-time**) ingest shards: 1MB/s or 1000 messages/s |
-| Kinesis Data Analytics | **Near real-time** analytics(SQL query), scripts out the **unneeded** data. |
+| Kinesis Data Analytics | **Near real-time** analytics(**SQL query**), scripts out the **unneeded** data. |
 | Kinesis Data Firehose | **Not real-time**, load streams(**not** used to *stream video*) into S3, etc. **Ingest**, *JSON* -> *Parquet* or *ORC* |
 | Kinesis Video Stream | streaming video(uses Amazon S3 for backend storage) |
 
@@ -81,7 +82,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Histogram` -> A graph used to represent the frequency distribution of a few data points of one variable.  
 `Scatterplot` -> Uses dots to represent values for **two different** numeric variables.  
 `One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms.  
-`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. **Scheduling** and **allocating** the resources    
+`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. **Scheduling** and **allocating** the *resources*.    
 `AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. **S3 prefixes**  
 `Principal component analysis(PCA)` -> A learning algorithm that **reduces** the **dimensionality** (number of features) within a dataset while retaining as much information as possible.  
 `Seaborn distribution plot(distplot)` -> Depicts the variation in the **data distribution**.  
@@ -154,8 +155,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `A/B testing` -> **Compares** the performance of two versions of content to see which one *appeals* more to visitors/viewer.  
 `Blue/Green deployment` -> An application release model that **gradually transfers** user traffic from a previous version of an app or microservice to a nearly identical new release—both of which are running in production.  
 `Amazon Macie` -> A **data security service** that uses machine learning (ML) and pattern matching to discover and help protect your sensitive data.  
-`FM(Factorization Machines)` -> Supervised, a general-purpose supervised learning algorithm that you can use for both **classification** and **regression** tasks. **float32** format.  
-`Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems.  
+`Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of *high-dimension* data.  
 `AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrate seamlessly with your **local** area network.  
 `AWS DeepRacer` -> An autonomous 1/18th scale race car designed to test **RL** models by racing on a physical track.  
 `Amazon Augmented AI` -> Implement **human reviews** and audits of ML predictions based on your specific requirements, including multiple reviewers.
@@ -180,12 +180,12 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Kinesis Producer Library (KPL)` -> Simplifies producer application development, allowing developers to achieve high write **throughput** to a *Kinesis Data Stream*.   
 `Kinesis Client Library(KCL)` -> Acts as an intermediary between your record **processing** logic and *Kinesis Data Streams*.  
 `Data Augmentation` -> A set of techniques to artificially **increase** the amount of data by generating **new data** points from existing data.  
-`Amazon SageMaker DeepAR` -> A supervised learning algorithm for forecasting scalar (one-dimensional) time series using *Recurrent Neural Networks* (**RNN**).  
+`Amazon SageMaker DeepAR` -> A supervised learning algorithm for forecasting scalar (one-dimensional) **time series** using *Recurrent Neural Networks* (**RNN**).  
 `Image localization` -> Aims to locate **the main single** (or most visible) object in an image.  
 `Image Classification` -> Assigning a **label** or class to an entire image.  
 `Instance Segmentation` -> Deals with detecting instances of objects and demarcating their **boundaries**.  
 `Weight Decay` -> A **regularization** technique by adding a small penalty, usually the L2 norm of the weights (all the weights of the model).  
-`SageMaker Elastic Inference` -> Allows you to attach a **low-cost GPU** to your instance.  
+`SageMaker Elastic Inference` -> Allows you to attach a **low-cost GPU** to your instance. Using to improve the inference **throughput**.  
 `Anaconda` -> An open-source distribution of the Python and R programming languages for **data science** that aims to simplify package management and deployment.  
 `DescribeTrainingJob(SageMaker)` -> Returns information about a job you previously initiated, check **FailureReason**.  
 `AWS CloudWatch` -> A **monitoring** service for AWS resources and applications.  
@@ -215,10 +215,10 @@ Provides *Online Analytical Processing* (**OLAP**).
 ### Data Distribution
 | Name | Explanation |
 | --- | --- |
-| Normal distribution | Data near the **mean** are more frequent in occurrence than data far from the mean.|
-| Poisson distribution| Expresses the probability of a given number of events occurring in a **fixed** interval of time or space if these events occur with a known constant mean rate and independently of the time since the last event. |
+| Normal distribution | Also known as the *Gaussian distribution*, Data near the **mean** are more frequent in occurrence than data far from the mean.|
+| Poisson distribution| Independent events that occur at a **constant** rate within a given interval of time. |
 | Binomial distribution | The discrete probability distribution that gives only **two possible results** in an experiment, either success or failure. |
-| Bernoulli distribution | **Multiple trials**(compare binomial distribution) |
+| Bernoulli distribution | **n = 1**, the binomial distribution is a Bernoulli distribution. |
 
 ### Note
 1. `DynamoDB Stream` can only be used in `DynamoDB`.
@@ -283,6 +283,31 @@ Provides *Online Analytical Processing* (**OLAP**).
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
 ---
+## Day 8
+`Linear Discriminant Analysis (LDA)` -> Dimensionality reduction.  
+`Amazon SageMaker IP Insights` -> An unsupervised learning algorithm that learns the usage patterns for **IPv4 addresses**.  
+`AWS Glue crawler` ->  A program that connects to a data store (source or target) such as Amazon S3, progresses through a prioritized list of classifiers to determine the schema for your data, and then creates metadata tables in the AWS Glue Data Catalog.  
+`Batch Transform` -> To get inferences for an **entire dataset**.  
+`Precision-Recall Area-Under-Curve (PR AUC)` -> For the **positive** class.  
+`FM(Factorization Machines)` -> Supervised, a general-purpose supervised learning algorithm that you can use for both **classification** and **regression** tasks. **float32** format. Use for **high-dimension** data.  
+`Logarithm Transformation` -> Decreases the effect of the **outliers**.  
+`Robust Standardization` -> Reduces the effect of the **outliers** in the features.  
+`Inference pipeline` -> Preprocessing, predictions, and post-processing on real-time and batch inference requests. Containers: *2-15*, both *real-time* prediction and *batch* transforms.  
+`Tf-idf` -> `tf('fox', d1) * idf('fox', D)`, where `tf('fox', d1) = 2/12` and `idf('fox', D) = log(2/2) = 0`, respectively.  
+
+### Note
+1. `Python Shell` supports `AWS Glue` jobs.
+2. `number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)`
+3. `M4` instance, no **GPU** support, cheaper.
+4. `Amazon SageMaker` supports authorization based on **resource tags**.
+5. When a model is **underfitting**, then adding **more features** to the model or **removing regularization**.
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+30
+
+---
+
 ## Resources
 * AWS Skill Builder -> AWS Certified Machine Learning - Specialty Official Practice Question Set (MLS-C01 - English)
 * AWS Skill Builder -> Exam Readiness: AWS Certified Machine Learning - Specialty
