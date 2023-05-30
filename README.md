@@ -9,6 +9,7 @@
 * [Day 6](#day-6)  
 * [Day 7](#day-7)  
 * [Day 8](#day-8)
+* [Day 9](#day-9)
 
 ---
 
@@ -16,7 +17,7 @@
 `Apache Spark` -> An open-source unified analytics engine for **large-scale** data processing.  
 `Object2Vec` -> A general-purpose neural **embedding** algorithm that is highly customizable. It can learn **low-dimensional** dense embeddings of *high-dimensional* objects.    
 `Semantic segmentation` -> Supervised, Categorize each **pixel** in an image into a class or object.   
-`Amazon SageMaker Object Detection` -> MXNet algorithm detects and **classifies** objects in images using a single deep neural network.   
+`Amazon SageMaker Object Detection` -> MXNet algorithm detects and **classifies** objects in images using a single deep neural network. Require code development.   
 `Amazon Rekognition` -> Offers pre-trained and customizable computer vision (CV) capabilities to **extract** information(*metadata*) and insights from your images and videos. **Celebrity** detection(Note: can't handle the very specific classification task)   
 `Random Cut Forest` -> unsupervised, detect **anomalous** data points within a data set.    
 `Elasticsearch(Amazon)` -> A distributed, RESTful *search* and *analytics* engine capable of addressing a growing number of use cases. Individual **server** required.   
@@ -38,7 +39,7 @@
 | --- | --- |
 | Kinesis Data Stream | Streaming(**real-time**) ingest shards: 1MB/s or 1000 messages/s |
 | Kinesis Data Analytics | **Near real-time** analytics(**SQL query**), scripts out the **unneeded** data. |
-| Kinesis Data Firehose | **Not real-time**, load streams(**not** used to *stream video*) into S3, etc. **Ingest**, *JSON* -> *Parquet* or *ORC* |
+| Kinesis Data Firehose | **Not real-time**, for **streaming** data(not used to *stream video*) into S3, etc. **Easiest way of Ingestion**, *JSON* -> *Parquet* or *ORC* |
 | Kinesis Video Stream | streaming video(uses Amazon S3 for backend storage) |
 
 ### Date Imputation(Missing Data)
@@ -65,7 +66,11 @@ $$precision=\frac{TP}{TP+FP}$$
 $$recall=\frac{TP}{TP+FN}$$
 * Minimize **false negatives**, describes positive records that predicted correctly.
 
-4. F1 Score
+4. Specificity
+$$specificity =\frac{TN}{TN+FP}$$
+* Minimize **false positives**
+
+5. F1 Score
 $$F1=2*\frac{precision*recall}{precision+recall}$$
 * **Balancing** between Precision and Recall
 
@@ -80,10 +85,9 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `T-SNE(T-Distributed Stochastic Neighbor Embedding)` -> An unsupervised, non-linear technique primarily used for data exploration, **dimensionality reduction** and **visualizing high-dimensional** data.  
 `Box plot` -> A method for graphically demonstrating the locality, spread and **skewness** groups of numerical data.  
 `Histogram` -> A graph used to represent the frequency distribution of a few data points of one variable.  
-`Scatterplot` -> Uses dots to represent values for **two different** numeric variables.  
+`Scatterplot` -> Uses dots to represent values for **two different** numeric variables. Spot **outliers**.  
 `One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms.  
 `AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. **Scheduling** and **allocating** the *resources*.    
-`AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. **S3 prefixes**  
 `Principal component analysis(PCA)` -> A learning algorithm that **reduces** the **dimensionality** (number of features) within a dataset while retaining as much information as possible.  
 `Seaborn distribution plot(distplot)` -> Depicts the variation in the **data distribution**.  
 `Amazon Personalize` -> A fully managed machine learning service that uses your data to generate item **recommendations** for your users.  
@@ -146,7 +150,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `AUC(Area Under the ROC)` -> AUC measures the ability of the model to predict a higher score for positive examples as compared to negative examples.  
 `K-means` -> Unsupervised, A **cluster** refers to a collection of data points aggregated together because of certain *similarities*.  
 `Logistic regression` -> Supervised, find the relationships between two data factors(**binary output**).  
-`LDA(Latent Dirichlet Allocation)` -> Unsupervised, **classification**, a **topic** modelling technique that can classify text in a *document* to a particular topic. Same as `NTM`.  
+`LDA(Latent Dirichlet Allocation)` -> Unsupervised, **classification**, a **topic** modelling technique that can classify text in a **document** to a particular topic. Same as `NTM`.  
 `Amazon SageMaker Autopilot` -> **Automatically** trains and tunes the best machine learning models for classification or regression, based on your data while allowing to maintain full control and visibility.  
 `Apache Flink` -> A **streaming** dataflow engine that you can use to run real-time stream processing on high-throughput data sources.  
 `Amazon SageMaker BlazingText` -> Provides highly optimized implementations of the **Word2vec(relationships)** and **text classification** algorithms.  
@@ -155,7 +159,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `A/B testing` -> **Compares** the performance of two versions of content to see which one *appeals* more to visitors/viewer.  
 `Blue/Green deployment` -> An application release model that **gradually transfers** user traffic from a previous version of an app or microservice to a nearly identical new release—both of which are running in production.  
 `Amazon Macie` -> A **data security service** that uses machine learning (ML) and pattern matching to discover and help protect your sensitive data.  
-`Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of *high-dimension* data.  
+`Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of **high-dimension** data.  
 `AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrate seamlessly with your **local** area network.  
 `AWS DeepRacer` -> An autonomous 1/18th scale race car designed to test **RL** models by racing on a physical track.  
 `Amazon Augmented AI` -> Implement **human reviews** and audits of ML predictions based on your specific requirements, including multiple reviewers.
@@ -180,7 +184,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Kinesis Producer Library (KPL)` -> Simplifies producer application development, allowing developers to achieve high write **throughput** to a *Kinesis Data Stream*.   
 `Kinesis Client Library(KCL)` -> Acts as an intermediary between your record **processing** logic and *Kinesis Data Streams*.  
 `Data Augmentation` -> A set of techniques to artificially **increase** the amount of data by generating **new data** points from existing data.  
-`Amazon SageMaker DeepAR` -> A supervised learning algorithm for forecasting scalar (one-dimensional) **time series** using *Recurrent Neural Networks* (**RNN**).  
+`Amazon SageMaker DeepAR` -> A supervised learning algorithm for forecasting scalar (**one-dimensional**) **time series** using *Recurrent Neural Networks* (**RNN**).  
 `Image localization` -> Aims to locate **the main single** (or most visible) object in an image.  
 `Image Classification` -> Assigning a **label** or class to an entire image.  
 `Instance Segmentation` -> Deals with detecting instances of objects and demarcating their **boundaries**.  
@@ -216,7 +220,7 @@ Provides *Online Analytical Processing* (**OLAP**).
 | Name | Explanation |
 | --- | --- |
 | Normal distribution | Also known as the *Gaussian distribution*, Data near the **mean** are more frequent in occurrence than data far from the mean.|
-| Poisson distribution| Independent events that occur at a **constant** rate within a given interval of time. |
+| Poisson distribution| Independent events that occur at a **constant** rate within a given *interval* of time. |
 | Binomial distribution | The discrete probability distribution that gives only **two possible results** in an experiment, either success or failure. |
 | Bernoulli distribution | **n = 1**, the binomial distribution is a Bernoulli distribution. |
 
@@ -284,8 +288,8 @@ Provides *Online Analytical Processing* (**OLAP**).
 
 ---
 ## Day 8
-`Linear Discriminant Analysis (LDA)` -> Dimensionality reduction.  
-`Amazon SageMaker IP Insights` -> An unsupervised learning algorithm that learns the usage patterns for **IPv4 addresses**.  
+`Linear Discriminant Analysis (LDA)` -> **Dimensionality** reduction.  
+`Amazon SageMaker IP Insights` -> An unsupervised learning algorithm that learns the usage patterns for **IPv4 addresses**, using for **Fraud Detection**.  
 `AWS Glue crawler` ->  A program that connects to a data store (source or target) such as Amazon S3, progresses through a prioritized list of classifiers to determine the schema for your data, and then creates metadata tables in the AWS Glue Data Catalog.  
 `Batch Transform` -> To get inferences for an **entire dataset**.  
 `Precision-Recall Area-Under-Curve (PR AUC)` -> For the **positive** class.  
@@ -293,7 +297,7 @@ Provides *Online Analytical Processing* (**OLAP**).
 `Logarithm Transformation` -> Decreases the effect of the **outliers**.  
 `Robust Standardization` -> Reduces the effect of the **outliers** in the features.  
 `Inference pipeline` -> Preprocessing, predictions, and post-processing on real-time and batch inference requests. Containers: *2-15*, both *real-time* prediction and *batch* transforms.  
-`Tf-idf` -> `tf('fox', d1) * idf('fox', D)`, where `tf('fox', d1) = 2/12` and `idf('fox', D) = log(2/2) = 0`, respectively.  
+`Tf-idf` -> `tf('fox', sent) * idf('fox', doc)`, where `tf('fox', sent) = 2/12` and `idf('fox', doc) = log(2/2) = 0`, respectively.  
 
 ### Note
 1. `Python Shell` supports `AWS Glue` jobs.
@@ -304,7 +308,26 @@ Provides *Online Analytical Processing* (**OLAP**).
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
-30
+---
+## Day 9
+`SageMaker built-in algorithm` -> Target variable should be in the **first column**; It should **not** have a *header record*. Content-type: `text/csv`, for unsupervised, `label_size=0`.   
+`Data Lake` -> Primarily store raw, **unprocessed** data.  
+`Data Warehouse` -> Structured data that has been cleaned and **processed**, ready for strategic analysis.  
+`Mindmap` -> A diagram used to visually organize information into a hierarchy, showing relationships among pieces of the whole.  
+`Hashmap` -> A data structure that is used to store and retrieve values based on keys.  
+`Line Chart` -> A graph that uses lines to connect individual data points.  
+`AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. Not meant to process *near real-time* data. Not support **RecordIO-Protobuf** and **Timestream**.  
+`PCA in randomized mode` -> For datasets with a large number of **observations** and **features**.  
+`Identity federation` -> Manage user identities **outside of AWS**.  
+
+### Note
+1. For `Amazon Redshift`, `COPY` loads large amounts of data efficiently.
+2. Config **network isolation** for `SageMaker`, through **interface endpoint**.
+3. ML first step: **Shuffle** the dataset.  
+4. `CloudTrail` does **not** monitor calls to *InvokeEndpoint*, captures **API calls**.
+5. `SageMaker` monitoring metrics are available on `CloudWatch` at a **1-minute** frequency.
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
 
 ---
 
