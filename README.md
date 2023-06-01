@@ -11,6 +11,7 @@
 * [Day 8](#day-8)
 * [Day 9](#day-9)
 * [Day 10](#day-10)
+* [Day 11](#day-11)
 
 ---
 
@@ -31,7 +32,7 @@
 `Splunk` -> Search, analyze and visualize all of data   
 `K-nearest neighbors(KNN)` -> Supervised, **classification**, **regression**. Uses proximity to make classifications or predictions about the **grouping** of an individual data point.  
 `Sparkmagic` -> A set of **tools** for interactively working with remote *Spark clusters* through Livy, a Spark REST server, in Jupyter notebooks.  
-`XGBoost`  -> An *Extreme Gradient Boosting algorithm* that is optimized for boosted **decision trees**, can **not** be used for **recommending system**.  
+`XGBoost`  -> An *Extreme Gradient Boosting algorithm* that is optimized for boosted **decision trees**, can **not** be used for **recommending system**, **no scaling** is required.  
 `SageMakerEstimator` -> Tight integration between *Spark* and *SageMaker* for several models including XGBoost, and offers the **simplest** solution  
 `MLLib` -> Built on top of *Spark*, MLlib is a scalable **machine learning library** consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, and underlying optimization primitives.  
 
@@ -82,19 +83,19 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 ---
 
 ## Day 2
-`Qualitative data` -> Non-numeric forms of data.  \
+`Qualitative data` -> **Non-numeric** forms of data.  
 `T-SNE(T-Distributed Stochastic Neighbor Embedding)` -> An unsupervised, non-linear technique primarily used for data exploration, **dimensionality reduction** and **visualizing high-dimensional** data.  
-`Box plot` -> A method for graphically demonstrating the locality, spread and **skewness** groups of numerical data. If a number is less than `Q1 – 1.5×IQR` or greater than `Q3 + 1.5×IQR`, then it is an outlier.  
+`Box plot` -> A method for graphically demonstrating the locality, spread and **skewness** groups of numerical data. If a number is less than `Q1 – 1.5×IQR` or greater than `Q3 + 1.5×IQR`, then it is an **outlier**.  
 `Histogram` -> A graph used to represent the frequency **distribution** of a few data points of one variable.  
 `Scatterplot` -> Uses dots to represent values for **two different** numeric variables. Spot **outliers**.  
 `One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms.  
-`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. **Scheduling** and **allocating** the *resources*.    
+`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. Scheduling and allocating the **resources**.    
 `Principal component analysis(PCA)` -> A learning algorithm that **reduces** the **dimensionality** (number of features) within a dataset while retaining as much information as possible.  
 `Seaborn distribution plot(distplot)` -> Depicts the variation in the **data distribution**.  
 `Amazon Personalize` -> A fully managed machine learning service that uses your data to generate item **recommendations** for your users.  
 `Amazon Textract` -> A machine learning (ML) service that automatically **extracts** text, handwriting, and data from scanned documents.  
-`SMOTE(Synthetic Minority Oversampling Technique)` -> A technique to **up-sample** the minority classes while avoiding overfitting.  
-`K-fold cross validation` -> A procedure used to estimate the **skill of the model** on new data.  
+`SMOTE(Synthetic Minority Oversampling Technique)` -> A technique to **over-sample** the minority classes while avoiding overfitting.  
+`K-fold cross validation` -> A procedure used to **estimate** the performance of the **model** on new data.  
 `One-class SVM` -> unsupervised, learns a decision function for **novelty** detection.  
 `Seq2Seq` -> nlp, takes a sequence of items (words, letters, time series, etc) and outputs another sequence of items.  
 `Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function.   
@@ -103,14 +104,14 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Grid Search` -> A tuning technique that attempts to compute the optimum values of **hyperparameters**.  
 `Depth-first search` -> An algorithm for searching a graph or tree *data structure*.  
 `Amazon FSx for Lustre` -> FSx for Lustre **speeds up** your training jobs by serving your Amazon S3 data to Amazon SageMaker at high speeds.  
-`Amazon EBS(Amazon Elastic Block Store)` -> provides block level storage volumes for use with EC2 instances.  
+`Amazon EBS(Amazon Elastic Block Store)` -> Provides block level storage volumes for use with EC2 instances.  
 `Amazon Lex` -> Enables you to build applications using a speech or text interface powered by the same technology that powers **Amazon Alexa**.  
 `Amazon Polly` -> Use deep learning technologies to synthesize natural-sounding **human speech**. *Speech Marks*: starts and ends, *SSML*: control, *Lexicons*: customize  
 `Amazon Transcribe` -> Converts **audio input into text**, which opens the door for various text analytics applications on voice input.  
 `Amazon Quicksight` -> **Anomaly detection**, **forecasting**, **auto-narrative**: customize(personalized dashboard)  
 `Amazon Athena` -> An interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (**Amazon S3**) using standard **SQL**. **Serverless**   
 `Canary Deployment` -> In the beginning, the current version receives **100%** of user traffic  
-`Xavier Initialization` -> An attempt to improve the initialization of neural network **weighted inputs**, in order to avoid some traditional problems in machine learning.  
+`Xavier Initialization` -> An attempt to improve the *initialization* of neural network **weighted inputs**, in order to avoid some traditional problems in machine learning.  
 
 ### Scaler
 | Name | Explanation |
@@ -124,7 +125,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 | Mini-batch gradient descent | Split the dataset into small subsets (batches) and compute the gradients for each batch. |
 | Gradient descent | An optimization algorithm that's used when training a machine learning model. |
 | **Adagrad** | An algorithm for gradient-based optimization. | 
-| **Rmsprop** | An extension of gradient descent and the AdaGrad version of gradient descent that uses a decaying average of partial gradients in the adaptation of the step size for each parameter. |
+| **Rmsprop** | An *extension* of gradient descent and the **AdaGrad** version of gradient descent that uses a decaying average of partial gradients in the adaptation of the step size for each parameter. |
 
 ### L1, L2 Regularation
 | Name | Description |
@@ -136,9 +137,9 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 1. SageMaker, to update an `Endpoint`, you must create a new `EndpointConfig`
 2. SageMaker, with `pipe input mode`, dataset is **streamed directly** to training instance, instead of being *downloaded* first.
 3. **Parquet** is faster then *csv*. 
-4. To use SageMaker training, the data should be split into training, validation, and test sets.
+4. To use SageMaker training, the data should be split into *training*, *validation*, and *test* sets.
 5. Correlation: Feature1(0.64) >(**stronger**) Feature2(-0.85) 
-6. SageMaker, "Data download failed." -> Check IAM role of encrypt and decrypt the data
+6. SageMaker, "Data download failed." -> Check IAM role of **encrypt** and **decrypt** the data
 7. SageMaker, Hyperparameter tunning job: `HyperparameterTunner()`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
@@ -151,11 +152,11 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `AUC/ROC(Area Under the ROC)` -> AUC measures the ability of the model to predict a higher score for positive examples as compared to negative examples. Suit for **binary classification model**.  
 `K-means` -> Unsupervised, A **cluster** refers to a collection of data points aggregated together because of certain *similarities*. Mandatory parameters: `feature_dim(number of features)` and `k(number of clusters)`.  
 `Logistic regression` -> Supervised, find the relationships between two data factors(**binary output**).  
-`LDA(Latent Dirichlet Allocation)` -> Unsupervised, **classification**, a **topic** modelling technique that can classify text in a **document** to a particular topic. Same as `NTM`, "bag-of-words" model, the order of words does **not** matter.  
+`LDA(Latent Dirichlet Allocation)` -> **Unsupervised**, **classification**, a **topic** modelling technique that can classify text in a **document** to a particular topic. Same as `NTM`, "bag-of-words" model, the order of words does **not** matter.  
 `Amazon SageMaker Autopilot` -> **Automatically** trains and tunes the best machine learning models for classification or regression, based on your data while allowing to maintain full control and visibility.  
 `Apache Flink` -> A **streaming** dataflow engine that you can use to run real-time stream processing on high-throughput data sources.  
 `Amazon SageMaker BlazingText` -> Provides highly optimized implementations of the **Word2vec(relationships)** and **text classification** algorithms.  
-`Amazon SageMaker NTM(Neural Topic Model)` -> Unsupervised, used to organize a corpus of **documents** into topics that contain word **groupings** based on their statistical distribution. Same as `LDA`.  
+`Amazon SageMaker NTM(Neural Topic Model)` -> **Unsupervised**, used to organize a corpus of **documents** into topics that contain word **groupings** based on their statistical distribution. Same as `LDA`.  
 `Peered VPCs` -> A networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. (Data does **not traverse** the **public** internet.)  
 `A/B testing` -> **Compares** the performance of two versions of content to see which one *appeals* more to visitors/viewer.  
 `Blue/Green deployment` -> An application release model that **gradually transfers** user traffic from a previous version of an app or microservice to a nearly identical new release—both of which are running in production.  
@@ -186,7 +187,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Kinesis Client Library(KCL)` -> Acts as an intermediary between your record **processing** logic and *Kinesis Data Streams*. It **cannot** be used on the **source system** to produce real time data.  
 `Data Augmentation` -> A set of techniques to artificially **increase** the amount of data by generating **new data** points from existing data.  
 `Amazon SageMaker DeepAR` -> A supervised learning algorithm for forecasting scalar (**one-dimensional**) **time series** using *Recurrent Neural Networks* (**RNN**).  
-`Image localization` -> Aims to locate **the main single** (or most visible) object in an image.  
+`Image localization` -> Aims to locate the main **single** (or most visible) **object** in an image.  
 `Image Classification` -> Assigning a **label** or class to an entire image.  
 `Instance Segmentation` -> Deals with detecting instances of objects and demarcating their **boundaries**.  
 `Weight Decay` -> A **regularization** technique by adding a small penalty, usually the L2 norm of the weights (all the weights of the model).  
@@ -200,12 +201,12 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Pair plot` -> Plot **pairwise relationships** in a dataset.  
 `Box and Whisker plot` -> Shows how the data is **distributed** and it also shows any **outliers**.  
 `Tree map` -> An alternative way of visualising the hierarchical structure of a **Tree Diagram** while also displaying **quantities** for each category via area size.  
-`Multilayer Perceptron (MLP)` -> A **fully connected** multi-layer neural network.  
+`Multilayer Perceptron (MLP)` -> A fully connected **multi-layer** neural network.  
 `Autoregressive Integrated Moving Average (ARIMA)` -> A method for forecasting or predicting *future* outcomes based on a historical **time series**.  
 `Amazon Forecast` -> A fully managed service that uses statistical and machine learning algorithms to deliver highly accurate **time series** forecasts.  
 `AutoML` -> Choose the *best model* for your time-series data. (including **DeepAR**, **ARIMA**, etc)  
 `Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
-`Service control policies (SCPs)` -> A type of **organization policy** that you can use to manage permissions in your organization.  
+`Service Control Policies (SCPs)` -> A type of **organization policy** that you can use to manage permissions in your organization.  
 `Organizational Unit (OU)` -> A logical **grouping of accounts** in your organization, created using AWS Organizations.
 
 ### S3
@@ -215,6 +216,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 | Amazon S3 Glacier Instant Retrieval | **Rarely** accessed, requires retrieval in milliseconds. | Processed data |
 | Amazon S3 Glacier Deep Archive | Accessed **once** or twice in a year | Raw data |
 * `S3 Lifecycle Rule`: Automating the archiving or deletion of old data
+* `S3 versioning`: Keep the older version of the objects.
 
 ### Data Distribution
 | Name | Explanation |
@@ -227,7 +229,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 ### Note
 1. `DynamoDB Stream` can only be used in `DynamoDB`, `SQL queries` are not supported.
 2. `SageMaker Estimator local mode` can quickly experiment with the models without having to wait for the training data to be **loaded**.
-3. A single `Amazon SageMaker endpoint` cannot serve two different `models`.
+3. A single `Amazon SageMaker endpoint` **cannot** serve two different `models`.
 4. Fraud Detection(*positive: fraud*), false **negative**: incorrectly identifying fraudulent transactions as **non-fraudulent**.
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
@@ -291,7 +293,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 ## Day 8
 `Linear Discriminant Analysis (LDA)` -> **Dimensionality** reduction.  
 `Amazon SageMaker IP Insights` -> An unsupervised learning algorithm that learns the usage patterns for **IPv4 addresses**, using for **Fraud Detection**.  
-`AWS Glue crawler` ->  A program that **connects** to a data store (source or target) such as Amazon S3, progresses through a prioritized list of classifiers to determine the schema for your data, and then creates metadata tables in the AWS Glue Data Catalog.  
+`AWS Glue crawler` ->  A program that **connects** to a data store (source or target) such as Amazon S3, used for automated collection and maintenance of **metadata** in the Glue Catalog. 
 `Batch Transform` -> To get inferences for an **entire dataset**.  
 `Precision-Recall Area-Under-Curve (PR AUC)` -> For **imbalanced** datasets, focus on the **positive** class.  
 `FM(Factorization Machines)` -> Supervised, a general-purpose supervised learning algorithm that you can use for both **classification** and **regression** tasks. **float32** format. Use for **high-dimension** data. Good for **click prediction** and **item recommendation**.  
@@ -314,8 +316,8 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `SageMaker built-in algorithm` -> Target variable should be in the **first column**; It should **not** have a *header record*. Content-type: `text/csv`, for unsupervised, `label_size=0`.   
 `Data Lake` -> Primarily store raw, **unprocessed** data.  
 `Data Warehouse` -> Structured data that has been cleaned and **processed**, ready for strategic analysis.  
-`Mindmap` -> A diagram used to visually organize information into a hierarchy, showing relationships among pieces of the whole.  
-`Hashmap` -> A data structure that is used to store and retrieve values based on keys.  
+`Mindmap` -> A diagram used to visually organize *information* into a hierarchy, showing relationships among pieces of the whole.  
+`Hashmap` -> A data structure that is used to *store* and *retrieve* values based on keys.  
 `Line Chart` -> A graph that uses lines to connect individual data points.  
 `AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. Not meant to process *near real-time* data. Not support **RecordIO-Protobuf** and **Timestream**.  
 `PCA in randomized mode` -> For datasets with a large number of **observations** and **features**.  
@@ -343,7 +345,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Bar Chart` -> A pictorial representation of data that uses bars to compare different **categories** of data.  
 `Bubble Chart` -> Show relationships between **numeric** variables.  
 `Amazon Redshift` -> A fully managed, petabyte-scale data **warehouse service** in the cloud.  
-`Comprehend` -> Supports **multiple languages**.  
+`Comprehend` -> Supports **multiple languages**, can do **summarization**, **supervised classification**.  
 `Root Mean Square Error (RMSE)` -> Distance measure between the predicted numeric target and the actual numeric answer (ground truth).   
 `Mean Absolute Error (MAE)` -> The absolute values of each prediction error on all instances of the test data-set.  
 `Residuals` -> Represent the portion of the target that the model is unable to predict. A **positive** residual indicates that the model is **underestimating** the target, whereas a **negative** residual indicates an **overestimation**.  
@@ -351,19 +353,39 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 ### Note
 1. There are **no inter-node** communications for **batch** processing.
 2. `SageMaker incremental training`: **Object Detection**, **Image Classification** and **Semantic Segmentation** are supported.
-3. Mandatory hyperparameter *mode* for **Word2Vec** (unsupervised) and **Text Classification** (supervised) of the SageMaker BlazingText.
+3. Mandatory hyperparameter *mode* for **Word2Vec** (unsupervised) and **Text Classification** (supervised) of the `SageMaker BlazingText`.
 4. `SageMaker Console`, `SageMaker API` and `SageMaker Notebook` can be used to train a SageMaker model.
 5. `Validation Set` for hyperparameter tuning. 
 6. Remove *stop words* for nlp. 
 7. `Automatic model tuning`, linear learner **internal tuning mechanism** will be *turned off*, `num_models`, to **1**.
 8. For aged training data, retrain the model using the **historical data** along with the **new data**.
 9. Replicate a *subset* of the data in S3, Set the `S3DataDistributionType` field to `ShardedByS3Key`.
-10. **Network Isolation not support**: `Amazon SageMaker Reinforcement Learning`, `Chainer`. 
+10. **Network Isolation not support**: `Amazon SageMaker Reinforcement Learning`, `Chainer`, as outside data are required. 
 11. Data saved within `/home/ec2-user/SageMaker` folder persist between notebook instance sessions. 
-12. Drop features, **low variance**, **low correlation** and **missing values**.
+12. Drop features, **low variance**, **low correlation** and lots of **missing values**.
 13. Feature engineering for `cyclical features`, represent features to `(x,y)` coordinates on a circle using *sin* and *cos* functions. 
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 11
+`unigram transformation` -> Each unique word is a *feature*.  
+`Speech Synthesis Markup Language (SSML)` -> Control aspects of **speech**, such as pronunciation, volume, pitch, speed rate for `Polly`.  
+`Vault Lock` -> Set **immutable policies** to enforce compliance controls for `S3`.  
+`Label encoding` -> Convert **categorical** variables into **numerical** format.  
+`AWS shared responsibility model` -> A concept of dividing **responsibilities** between AWS and a Customer. The Customer is you. AWS's responsibilities are the security of the cloud.  
+`Translate` -> Can **auto-detect** source language and **convert** it to a target language.  
+
+### Note
+1. Increase **batch size** would result in **less-frequent** weight adjustment.
+2. **Duplicated data** should be **cleaned up** before processing.
+3. Use the **validation data** to tune the *model* performance.
+4. **Tree-based** algorithms like *decision tree*, *random forest*, and *xgboost* have a lower and upper **bound** it can predict for regression.
+5. For **time-series** prediction, you need to split the dataset based on **time**, random shuffling is not recommended for time series forecasting.
+6. *Best* possible error represents for **human-level performance**. 
+7. **Validation** guides the **tuning** exercise.
+8. With `Lambda`, based on the **memory** configuration, proportional *CPU* capacity is allocated. 
+9. **Batch size** and **learning rate** should be adjusted by the same factor. 
 
 ---
 
@@ -373,6 +395,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Udemy -> AWS Certified Machine Learning Specialty 2023 - Hands On!
 * Udemy -> AWS Certified Machine Learning Specialty Full Practice Exam
 * Udemy -> AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS
+* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023] - Practice Test
 
 ---
 
