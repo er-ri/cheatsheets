@@ -15,6 +15,7 @@
 * [Day 12](#day-12)
 * [Day 13](#day-13)
 * [Day 14](#day-14)
+* [Day 15](#day-15)
 
 ---
 
@@ -23,7 +24,6 @@
 `Object2Vec` -> A general-purpose neural **embedding** algorithm that is highly customizable. It can learn **low-dimensional** dense embeddings of *high-dimensional* objects, can find semantically **similar** objects.    
 `Semantic segmentation` -> Supervised, Categorize each **pixel** in an image into a class or object.   
 `Amazon SageMaker Object Detection` -> MXNet algorithm detects and **classifies** objects in images using a single deep neural network. Require code development.   
-`Amazon Rekognition` -> Offers pre-trained and customizable computer vision (CV) capabilities to **extract** information(*metadata*) and videos. **Celebrity** detection, **track** of the path people take in videos.  
 `Elasticsearch(Amazon)` -> A distributed, RESTful *search* and *analytics* engine capable of addressing a growing number of use cases. Individual **server** required.   
 `SageMaker Ground Truth` -> A data **labeling service** that makes it easy to label data(option: *Amazon Mechanical Turk*)   
 `Amazon SageMaker Neo` -> Enables developers to **optimize** machine learning (ML) models for inference on SageMaker in the cloud and supported devices at the **edge**.   
@@ -40,7 +40,6 @@
 ## Day 2
 `Qualitative data` -> **Non-numeric** forms of data.  
 `T-SNE(T-Distributed Stochastic Neighbor Embedding)` -> An unsupervised, non-linear technique primarily used for data exploration, **dimensionality reduction** and **visualizing high-dimensional** data.  
-`Box plot` -> A method for graphically demonstrating the locality, spread and **skewness** groups of numerical data. If a number is less than `Q1 – 1.5×IQR` or greater than `Q3 + 1.5×IQR`, then it is an **outlier**.  
 `Histogram` -> A graph used to represent the frequency **distribution** of a few data points of one variable.  
 `Scatterplot` -> Uses dots to represent values for **two different** numeric variables. Spot **outliers**.  
 `One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms.  
@@ -140,7 +139,6 @@
 `AWS CloudWatch` -> A **monitoring** service for AWS resources and applications.  
 `AWS CloudTrail` -> A web service that records **API** activity in your AWS account.  
 `Amazon RDS` -> Amazon Relational Database Service (Amazon RDS) is a web service that makes it easier to set up, operate, and scale a **relational database** in the AWS Cloud.  
-`Amazon Redshift Spectrum` -> Data warehousing service, can query and retrieve structured and semistructured data from files in Amazon S3 **without loading** the data. Provides *Online Analytical Processing* (**OLAP**).  
 `Pair plot` -> Plot **pairwise relationships** in a dataset.  
 `Box and Whisker plot` -> Shows how the data is **distributed** and it also shows any **outliers**.  
 `Tree map` -> An alternative way of visualising the hierarchical structure of a **Tree Diagram** while also displaying **quantities** for each category via area size.  
@@ -262,7 +260,6 @@
 `N-grams` -> A sequence of N words.  
 `Levenstein distance` -> A string metric for measuring the *difference* between two sequences.  
 `AWS Data Pipeline` -> A web service that makes it easy to schedule regular **data movement** and **data processing** activities in the AWS cloud.  
-`Categorical Encoding` -> Converting *categorical* data into **integer** format.  
 `Recursive Feature Elimination(REF)` -> A **feature selection** method that fits a model and removes the weakest feature (or features). Use for **overfitting**.  
 `Bar Chart` -> A pictorial representation of data that uses bars to compare different **categories** of data.  
 `Bubble Chart` -> Show relationships between **numeric** variables.  
@@ -283,7 +280,6 @@
 * Replicate a *subset* of the data in S3, Set the `S3DataDistributionType` field to `ShardedByS3Key`.
 * **Network Isolation not support**: `Amazon SageMaker Reinforcement Learning`, `Chainer`, as outside data are required. 
 * Data saved within `/home/ec2-user/SageMaker` folder persist between notebook instance sessions. 
-* Drop features, **low variance**, **low correlation** and lots of **missing values**.
 * Feature engineering for `cyclical features`, represent features to `(x,y)` coordinates on a circle using *sin* and *cos* functions. 
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
@@ -379,13 +375,13 @@
 
 ### Question Set
 * Udemy -> AWS Certified Machine Learning Specialty 2023 - Hands On!
-* Udemy -> AWS Certified Machine Learning Specialty Full Practice Exam `(Practice Test2: 4, 14,)`
+* Udemy -> AWS Certified Machine Learning Specialty Full Practice Exam `(Practice Test2)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
 ---
 ## Day 14
-`Support Vector Machine(SVM) with RBF kernel` -> Supervised, for **classification** and **regression**, can also be used for **dimensionality reduction**. Can classify for **non-linear** boundary.  
+`Support Vector Machine(SVM) with RBF kernel` -> Supervised, for **classification** and **regression**, can also be used for **dimensionality reduction**. Can classify for **non-linear** problem.  
 `AWS Glue's FindMatches` -> A way to perform **de-duplication** as part of *Glue ETL*.  
 `AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. Not meant to process *near real-time* data. Not support **RecordIO-Protobuf**, **Timestream** nor **LibSVM** format. Using **prefixes**.   
 `Line Chart` -> A graph that uses lines to connect individual data points. Can **not** be used to **spot outliers**.   
@@ -437,6 +433,24 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
 ---
+## Day 15
+`Amazon Rekognition` -> Offers pre-trained and customizable computer vision (CV) capabilities to **extract** information(*metadata*) and videos. **Celebrity** detection, `Pathing`: track of the **path** people take in videos.  
+`Categorical Encoding` -> Converting *categorical* data into **integer** format, **ordinal** and *nominal* data.  
+`Amazon Redshift Spectrum` -> Data **warehousing** service, can query and retrieve structured and semistructured data from files in `Amazon S3` **without loading** the data. Provides *Online Analytical Processing* (**OLAP**).  
+`Box plot` -> A method for graphically demonstrating the locality, spread and **skewness** groups of numerical data. If a number is less than `Q1 – 1.5×IQR` or greater than `Q3 + 1.5×IQR`, then it is an **outlier**.  
+
+### Note
+* `Sagemaker Linear Learner`, *automatic model tuning* will set `num_models1` to 1.
+* `Bivariate/Multivariate visualizations` can **not** be used to group data points(*clustring*).
+* `LDA` can figure out the right **categories** for each *product*.
+* Drop features, **low variance**, **low correlation** and lots of **missing values**.
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS `(Practice Test3)`
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
 
 ## Resources
 * AWS Skill Builder -> AWS Certified Machine Learning - Specialty Official Practice Question Set (MLS-C01 - English)
@@ -444,8 +458,8 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Udemy -> AWS Certified Machine Learning Specialty 2023 - Hands On! `(10 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty Full Practice Exam `(65 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS `(10+65+65 questions)`
-* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023] - Practice Test
-* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023] - Practice Test(20 questions)
+* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023]
+* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023]
 
 ---
 
