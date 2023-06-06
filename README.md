@@ -16,6 +16,7 @@
 * [Day 13](#day-13)
 * [Day 14](#day-14)
 * [Day 15](#day-15)
+* [Day 16](#day-16)
 
 ---
 
@@ -42,7 +43,6 @@
 `T-SNE(T-Distributed Stochastic Neighbor Embedding)` -> An unsupervised, non-linear technique primarily used for data exploration, **dimensionality reduction** and **visualizing high-dimensional** data.  
 `Histogram` -> A graph used to represent the frequency **distribution** of a few data points of one variable.  
 `Scatterplot` -> Uses dots to represent values for **two different** numeric variables. Spot **outliers**.  
-`One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms.  
 `Seaborn distribution plot(distplot)` -> Depicts the variation in the **data distribution**.  
 `Amazon Personalize` -> A fully managed machine learning service that uses your data to generate item **recommendations** for your users.  
 `Amazon Textract` -> A machine learning (ML) service that automatically **extracts** text, handwriting, and data from scanned documents.  
@@ -263,7 +263,6 @@
 `Recursive Feature Elimination(REF)` -> A **feature selection** method that fits a model and removes the weakest feature (or features). Use for **overfitting**.  
 `Bar Chart` -> A pictorial representation of data that uses bars to compare different **categories** of data.  
 `Bubble Chart` -> Show relationships between **numeric** variables.  
-`Comprehend` -> Supports **multiple languages**, can do **summarization**, **supervised classification**.  
 `Root Mean Square Error (RMSE)` -> Distance measure between the predicted numeric target and the actual numeric answer (ground truth).   
 `Mean Absolute Error (MAE)` -> The absolute values of each prediction error on all instances of the test data-set.  
 `Residuals` -> Represent the portion of the target that the model is unable to predict. A **positive** residual indicates that the model is **underestimating** the target, whereas a **negative** residual indicates an **overestimation**.  
@@ -451,6 +450,19 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
 ---
+## Day 16
+`One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms, for *day of week*.  
+`Comprehend` -> Supports **multiple languages**, can do **summarization**, **supervised classification**.  
+
+### Note
+* Increase **batch size**, weights of features are adjusted **less often**.
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023]
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
 
 ## Resources
 * AWS Skill Builder -> AWS Certified Machine Learning - Specialty Official Practice Question Set (MLS-C01 - English)
@@ -458,7 +470,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Udemy -> AWS Certified Machine Learning Specialty 2023 - Hands On! `(10 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty Full Practice Exam `(65 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS `(10+65+65 questions)`
-* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023]
+* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023] `(65 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023]
 
 ---
