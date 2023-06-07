@@ -17,6 +17,7 @@
 * [Day 14](#day-14)
 * [Day 15](#day-15)
 * [Day 16](#day-16)
+* [Day 17](#day-17)
 
 ---
 
@@ -312,9 +313,8 @@
 `Mapping technique` -> For **ordinal**, **categorical** data.  
 `K-fold cross validation` -> A procedure used to **estimate** the performance of the **model** on new data.  
 `Stratified K-fold cross validation` -> For **unbalanced** data to evaluate the model performance.  
-`Amazon SageMaker Autopilot` -> **Automatically** trains and tunes the best machine learning models for classification or regression, **tabular data(csv)** format is required.  
+`Amazon SageMaker Autopilot` -> **Automatically** trains and tunes the best machine learning models for *classification* or *regression*, **tabular data(csv)** format is required.  
 `Blue/Green deployment` -> A deployment strategy in which you create two **separate**, but **identical** environments, once testing is completed, direct all traffic.  
-`K-nearest neighbors(KNN)` -> Supervised, **classification**, **regression**. Uses proximity to make classifications or predictions about the **grouping** of an individual data point.  
 `Principal component analysis(PCA)` -> A learning algorithm that **reduces** the **dimensionality** (number of features) within a dataset, can also **visualize** data directly.  
 
 ### Date Imputation(Missing Data)
@@ -326,14 +326,13 @@
 | Create a separate boolean column | - |
 | Fill with zeros | - |
 | Regression | - |
-|Impute with median value | Outlier exists |
+|Impute with median value | For outliers |
 
 ### Note
 * Selete the model has less **penalties**.
 * Be careful for the **axis** of `confusion matrix`.
 * `Softmax activation` predicts for **one class** among other classes, whereas `sigmoid activation` predicts for **each class** independent of one another.
 * `SageMaker Estimator`, `local mode: instance_type='local'` can quickly experiment with the models without having to wait for the training data to be **loaded**.
-* `SageMaker built in XGBoost`, no code necessary. 
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -416,7 +415,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ### Note
 * `Kinesis Data Firehose` + `built-in lambda` is eaiser than `Kinesis Data Streams` + `Glue ETL`, as a `Glue` script is required.(for *near real-time*)
-* `BlazingText Word2Vec mode`: The order of words **doesn't** matter, skip-gram and continuous bag of words(**CBOW**) architectures. Find *relationships* between **words**.
+* `BlazingText Word2Vec mode`: The *order* of words **doesn't** matter, skip-gram and continuous bag of words(**CBOW**) architectures. Find *relationships* between **words**.
 * `SageMaker Training Task built-in Algorithm`, 1. **ARN** and **IAM role**, 2. compute **instance**, 3. *model* output path of **S3**. 
 * `Cost function`, **low positive** data -> penalize **false negative**.
 * Add **more training data** for **overfitting**.
@@ -451,7 +450,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ---
 ## Day 16
-`One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms, for *day of week*.  
+`One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms, such as *day of week*.  
 `Comprehend` -> Supports **multiple languages**, can do **summarization**, **supervised classification**.  
 
 ### Note
@@ -459,6 +458,18 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ### Question Set
 * Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023]
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 17
+`K-nearest neighbors(KNN)` -> Supervised, **classification**, **regression**. Uses proximity to make classifications or predictions about the **grouping** of an individual data point, can be used to **non-linear** regression.  
+
+### Note
+* `SageMaker built in XGBoost`, no code necessary, automatically **scaling**, do **not** perform *one-hot encoding* on **binary** features. 
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023]
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -471,7 +482,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Udemy -> AWS Certified Machine Learning Specialty Full Practice Exam `(65 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS `(10+65+65 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023] `(65 questions)`
-* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023]
+* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023] `(20 questions)`
 
 ---
 
