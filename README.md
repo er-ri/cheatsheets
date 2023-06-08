@@ -18,6 +18,7 @@
 * [Day 15](#day-15)
 * [Day 16](#day-16)
 * [Day 17](#day-17)
+* [Day 18](#day-18)
 
 ---
 
@@ -46,7 +47,6 @@
 `Scatterplot` -> Uses dots to represent values for **two different** numeric variables. Spot **outliers**.  
 `Seaborn distribution plot(distplot)` -> Depicts the variation in the **data distribution**.  
 `Amazon Personalize` -> A fully managed machine learning service that uses your data to generate item **recommendations** for your users.  
-`Amazon Textract` -> A machine learning (ML) service that automatically **extracts** text, handwriting, and data from scanned documents.  
 `SMOTE(Synthetic Minority Oversampling Technique)` -> A technique to **over-sample** the minority classes while avoiding overfitting.  
 `One-class SVM` -> unsupervised, learns a decision function for **novelty** detection.  
 `Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function.   
@@ -278,7 +278,7 @@
 * `Automatic model tuning`, linear learner **internal tuning mechanism** will be *turned off*, `num_models`, to **1**.
 * For aged training data, retrain the model using the **historical data** along with the **new data**.
 * Replicate a *subset* of the data in S3, Set the `S3DataDistributionType` field to `ShardedByS3Key`.
-* **Network Isolation not support**: `Amazon SageMaker Reinforcement Learning`, `Chainer`, as outside data are required. 
+* **Network Isolation not support**: `Amazon SageMaker Reinforcement Learning`, `Chainer`, as *outside* data are required. 
 * Data saved within `/home/ec2-user/SageMaker` folder persist between notebook instance sessions. 
 * Feature engineering for `cyclical features`, represent features to `(x,y)` coordinates on a circle using *sin* and *cos* functions. 
 
@@ -341,7 +341,6 @@
 `cyclical features` -> Hours of the day, days of the week, months in a year, and wind direction.  
 `Amazon IoT Greengrass` -> *Software*, extends *cloud capabilities* to **local devices**.  
 `Tf-idf` -> `tf('fox', sent) * idf('fox', doc)`, where `tf('fox', sent) = 2/12` and `idf('fox', doc) = log(2/2) = 0`, respectively. Dimension of the matrix: `(sentences, unigram & bigram)`.   
-`A/B testing` -> **Compares** the performance of two versions of model to see which one *appeals* more to visitors/viewer, **low risk**.  
 `Rolling deployment` -> A deployment strategy that slowly **replaces previous** versions of an application with new versions.  
 `Nvidia jetson edge` -> AI computing platform for GPU-accelerated parallel processing in mobile embedded ... Robotics and **Edge** Computing.  
 `XGBoost`  -> An *Extreme Gradient Boosting algorithm* that is optimized for boosted **decision trees**, can **not** be used for **recommending system**, **no scaling** is required. **LibSVM** or **CSV** format are required.  
@@ -367,12 +366,12 @@
 
 ### Note
 * `Hyperparameter tunning`: Run only **one** training **job** at a time.
-* `Amazon EMR`, **master node**, **core node**, **task node**(can use in *Spot instance*).
+* `Amazon EMR`, **master node**, **core node**, **task node**(can be used in *Spot instance*).
 * `XGBoost`, adjust parameter **subsample** can handle overfitting problem. 
 * Enable **inter-container** encyption for training in **privat VPC**.
 
 ### Question Set
-* Udemy -> AWS Certified Machine Learning Specialty 2023 - Hands On!
+* Udemy -> AWS Certified Machine Learning Specialty 2023 - Hands On! `OK`
 * Udemy -> AWS Certified Machine Learning Specialty Full Practice Exam `(Practice Test2)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
@@ -386,7 +385,6 @@
 `Amazon SageMaker IP Insights` -> An *unsupervised* learning algorithm that learns the usage patterns for **IPv4 addresses**, using for **Fraud Detection**.  
 `PCA in randomized mode` -> For datasets with a *large* number of **observations** and **features**. (*regular mode*)  
 `SageMaker Elastic Inference` -> Allows you to attach a **low-cost GPU** to your instance. Using to improve the inference **throughput**, can **not** replace `Auto Scaling`.    
-`Amazon SageMaker DeepAR` -> A supervised learning algorithm for forecasting scalar (**one-dimensional**) **time series** using *Recurrent Neural Networks* (**RNN**). Specializes in forecasting **new product performance**.    
 `Logarithm Transformation` -> Decreases the effect of the **outliers**.  
 `Robust Standardization` -> Reduces the effect of the **outliers** in the features.  
 
@@ -469,7 +467,28 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * `SageMaker built in XGBoost`, no code necessary, automatically **scaling**, do **not** perform *one-hot encoding* on **binary** features. 
 
 ### Question Set
-* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023]
+* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023] `(Practice Test)`
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 18
+`VPC endpoint` -> Enables connections between a `virtual private cloud (VPC)` and supported *services*, without requiring that you use an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection.  
+`VPC gateway endpoint` -> A target for a route in your route table used for traffic destined to either `Amazon S3` or `DynamoDB`.  
+`A/B testing` -> **Compares** the performance of two versions of model to see which one *appeals* more to visitors/viewer, uses the 2 model variants with **half** the traffic serving each of them. **low risk**.  
+`Amazon SageMaker DeepAR` -> A supervised learning algorithm for forecasting scalar (**one-dimensional**) **time series** using *Recurrent Neural Networks* (**RNN**). Specializes in forecasting **new product performance**.    
+`Amazon Textract` -> A machine learning (ML) service that automatically **extracts** text, handwriting, and data from **scanned documents**.  
+`Collaborative filtering` -> Recommender systems for calculating ratings based on ratings of similar users. Recommandations are based on the other **users(collaborator)**.  
+`Content-based` -> Recommander system, Recommandations are based on the **contents**.  
+
+### Note
+* `Amazon Kinesis video stream` can **not** stream data from *multiple producers*. 
+* `Amazon Kinesis Data Analytics` can also be used to **data transformation**.
+* `Amazon Kinesis Data Streams` can be ingested from *multiple* sources.
+* Increase the *mini-batch size* with the number of *GPUs* **linearly** in order to fully utilize all GPUs.
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(1&2)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -483,6 +502,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Udemy -> AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS `(10+65+65 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023] `(65 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023] `(20 questions)`
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(20*6 questions)`
 
 ---
 
