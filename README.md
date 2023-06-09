@@ -19,6 +19,7 @@
 * [Day 16](#day-16)
 * [Day 17](#day-17)
 * [Day 18](#day-18)
+* [Day 19](#day-19)
 
 ---
 
@@ -31,7 +32,6 @@
 `SageMaker Ground Truth` -> A data **labeling service** that makes it easy to label data(option: *Amazon Mechanical Turk*)   
 `Amazon SageMaker Neo` -> Enables developers to **optimize** machine learning (ML) models for inference on SageMaker in the cloud and supported devices at the **edge**.   
 `Amazon EMR` -> **Not serverless**, a managed cluster platform that simplifies running big data frameworks, such as **Apache Hadoop** and **Apache Spark**.(File system: *hdfs*, emrfs, local file system)   
-`Splunk` -> Search, analyze and visualize all of data   
 `Sparkmagic` -> A set of **tools** for interactively working with remote *Spark clusters* through Livy, a Spark REST server, in Jupyter notebooks.  
 `SageMakerEstimator` -> Tight integration between *Spark* and *SageMaker* for several models including XGBoost, and offers the **simplest** solution  
 `MLLib` -> Built on top of *Spark*, MLlib is a scalable **machine learning library** consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, and underlying optimization primitives.  
@@ -106,7 +106,6 @@
 `Amazon SageMaker NTM(Neural Topic Model)` -> **Unsupervised**, used to organize a corpus of **documents** into topics that contain word **groupings** based on their statistical distribution. Same as `LDA`.  
 `Peered VPCs` -> A networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. (Data does **not traverse** the **public** internet.)  
 `Amazon Macie` -> A **data security service** that uses machine learning (ML) and pattern matching to discover and help protect your sensitive data.  
-`Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of **high-dimension** data.  
 `AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrate seamlessly with your **local** area network.  
 `AWS DeepRacer` -> An autonomous 1/18th scale race **car** designed to test **RL** models by racing on a physical track.  
 `Amazon Augmented AI` -> Implement **human reviews** and audits of ML predictions based on your specific requirements, including multiple reviewers.
@@ -145,20 +144,10 @@
 `Tree map` -> An alternative way of visualising the hierarchical structure of a **Tree Diagram** while also displaying **quantities** for each category via area size.  
 `Multilayer Perceptron (MLP)` -> A fully connected **multi-layer** neural network.  
 `Autoregressive Integrated Moving Average (ARIMA)` -> A method for forecasting or predicting *future* outcomes based on a historical **time series**.  
-`Amazon Forecast` -> A fully managed service that uses statistical and machine learning algorithms to deliver highly accurate **time series** forecasts.  
 `AutoML` -> Choose the *best model* for your time-series data. (including **DeepAR**, **ARIMA**, etc)  
 `Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
 `Service Control Policies (SCPs)` -> A type of **organization policy** that you can use to manage permissions in your organization.  
 `Organizational Unit (OU)` -> A logical **grouping of accounts** in your organization, created using AWS Organizations.
-
-### S3
-| Name | Type | Note |
-| --- | --- | --- |
-| Amazon S3 Standard | **Frequent** |Processed data |
-| Amazon S3 Glacier Instant Retrieval | **Rarely** accessed, requires retrieval in milliseconds. | Processed data |
-| Amazon S3 Glacier Deep Archive | Accessed **once** or twice in a year | Raw data |
-* `S3 Lifecycle Rule`: Automating the archiving or deletion of old data
-* `S3 versioning`: Keep the older version of the objects.
 
 ### Data Distribution
 | Name | Explanation |
@@ -191,7 +180,6 @@
 ## Day 6
 `Amazon Aurora` -> A fully managed relational database engine that's compatible with *MySQL* and *PostgreSQL*.  
 `RecordIO` -> The best **format** choice on models.  
-`Amazon SQS` -> Send, store, and receive messages between software components at any volume.  
 `AWS Step Functions` -> A visual **workflow service** that helps developers use AWS services to build distributed applications, automate processes, orchestrate microservices, and create data and machine learning (ML) **pipelines**.  
 `Amazon Simple Workflow Service` -> A fully managed **workflow service** for building scalable, resilient applications. More complex then *AWS Step Functions*.  
 `LibSVM` -> A specific **data format** for the data analysis tool LibSVM. *Glue ETL*, *Kinesis Analytics* are not supported.  
@@ -266,7 +254,6 @@
 `Bubble Chart` -> Show relationships between **numeric** variables.  
 `Root Mean Square Error (RMSE)` -> Distance measure between the predicted numeric target and the actual numeric answer (ground truth).   
 `Mean Absolute Error (MAE)` -> The absolute values of each prediction error on all instances of the test data-set.  
-`Residuals` -> Represent the portion of the target that the model is unable to predict. A **positive** residual indicates that the model is **underestimating** the target, whereas a **negative** residual indicates an **overestimation**.  
 
 ### Note
 * There are **no inter-node** communications for **batch** processing.
@@ -314,7 +301,6 @@
 `K-fold cross validation` -> A procedure used to **estimate** the performance of the **model** on new data.  
 `Stratified K-fold cross validation` -> For **unbalanced** data to evaluate the model performance.  
 `Amazon SageMaker Autopilot` -> **Automatically** trains and tunes the best machine learning models for *classification* or *regression*, **tabular data(csv)** format is required.  
-`Blue/Green deployment` -> A deployment strategy in which you create two **separate**, but **identical** environments, once testing is completed, direct all traffic.  
 `Principal component analysis(PCA)` -> A learning algorithm that **reduces** the **dimensionality** (number of features) within a dataset, can also **visualize** data directly.  
 
 ### Date Imputation(Missing Data)
@@ -385,7 +371,6 @@
 `Amazon SageMaker IP Insights` -> An *unsupervised* learning algorithm that learns the usage patterns for **IPv4 addresses**, using for **Fraud Detection**.  
 `PCA in randomized mode` -> For datasets with a *large* number of **observations** and **features**. (*regular mode*)  
 `SageMaker Elastic Inference` -> Allows you to attach a **low-cost GPU** to your instance. Using to improve the inference **throughput**, can **not** replace `Auto Scaling`.    
-`Logarithm Transformation` -> Decreases the effect of the **outliers**.  
 `Robust Standardization` -> Reduces the effect of the **outliers** in the features.  
 
 ### Merics
@@ -449,7 +434,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 ---
 ## Day 16
 `One-hot encoding` -> A process by which **categorical** variables are converted into a form that could be provided to ML algorithms, such as *day of week*.  
-`Comprehend` -> Supports **multiple languages**, can do **summarization**, **supervised classification**.  
 
 ### Note
 * Increase **batch size**, weights of features are adjusted **less often**.
@@ -489,6 +473,48 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ### Question Set
 * Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(1&2)`
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 19
+`Comprehend` -> Supports **multiple languages**, can do **summarization**, **supervised classification** and **extract** text from documents.  
+`Splunk` -> A *software* platform be used to search, analyze and visualize of data.   
+`Managed ETL service` -> `AWS Glue` (works with only **one** engine) and `AWS Data Pipeline` (can use **multiple** engines).   
+`Logarithm Transformation` -> Decreases the effect of the **outliers**, to be more *normally distributed*.  
+`Residuals` -> Represent the portion of the target that the model is unable to predict. A **positive** residual indicates that the model is **underestimating** the target, whereas a **negative** residual indicates an **overestimation**.(`Residual = Actual value – Predicted value`)  
+`Amazon SQS` -> A **queuing service**, send, store, and receive messages between software components at any volume.  
+`Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of **high-dimension** data.  
+`Amazon Forecast` -> A fully managed service that uses statistical and machine learning algorithms to deliver highly accurate **time series** forecasts. ML background is **not** required.  
+`Blue/Green deployment` -> A deployment strategy in which you create two **separate**, but **identical** environments, once testing is completed, direct all traffic.  
+
+### Metrics
+| Metrics | Meaning |
+| --- | --- |
+| High bias | **Underfitting** (too simple) (The model has not established the perfect relation between inputs and outputs) |
+| High variance | **Overfitting** (too complex) (model not generalizing well to new data points) |
+
+### S3
+| Name | Type | Note |
+| --- | --- | --- |
+| S3 Standard | **Frequent** |Processed data, high availability |
+| S3 Standard-IA | - | Low availability |
+| S3 Intelligent tiering | - | Random access, high availability | 
+| S3 Glacier Instant Retrieval | **Rarely** accessed, requires retrieval in milliseconds. | Processed data |
+| S3 Glacier Deep Archive | Accessed **once** or twice in a year | Raw data, high availability |
+* `S3 Lifecycle Rule`: Automating the archiving or deletion of old data
+* `S3 versioning`: Keep the older version of the objects.
+
+### Note
+* When the graph has a long **right tail**(fewer data), it is **right-skewed** and vice versa. 
+* `Amazon Kinesis Firehose` can **transform** the data from one format to another.
+* A `KMS key policy` permission should be granted to the **Role** who are going to access the data reside in S3. 
+* The prebuilt containers in `SageMaker` supports **Python** SDK not *R*.
+* All the *containers* of the **same model** should reside on the **same EC2** instance.
+* `Amazon Blazingtext`, the training/validation file should contain a training sentence **per line** along with the labels. 
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(3&4)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
