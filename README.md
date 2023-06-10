@@ -49,7 +49,6 @@
 `Amazon Personalize` -> A fully managed machine learning service that uses your data to generate item **recommendations** for your users.  
 `SMOTE(Synthetic Minority Oversampling Technique)` -> A technique to **over-sample** the minority classes while avoiding overfitting.  
 `One-class SVM` -> unsupervised, learns a decision function for **novelty** detection.  
-`Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function.   
 `Breadth-first search(BFS)` -> An algorithm for searching a tree *data structure* for a node that satisfies a given property.  
 `Random Search(RS)` -> A technique where random combinations of the **hyperparameters** are used to find the best solution for the built model.  
 `Grid Search` -> A tuning technique that attempts to compute the optimum values of **hyperparameters**.  
@@ -99,13 +98,11 @@
 `Word2Vec` -> A text **classification** algorithm. Word2vec is useful for sentiment analysis, entity recognition, and translation.  
 `ROC(Receiver Operating Characteristic Curve)` -> A graph showing the performance of a **classification model** at all classification *thresholds*. A good ROC: (0, 1)   
 `AUC/ROC(Area Under the ROC)` -> AUC measures the ability of the model to predict a higher score for positive examples as compared to negative examples. For **binary classification model**.  
-`Logistic regression` -> Supervised, find the relationships between two data factors(**binary output**).  
 `LDA(Latent Dirichlet Allocation)` -> **Unsupervised**, **classification**, a **topic** modelling technique that can classify text in a **document** to a particular topic. Same as `NTM`, "bag-of-words" model, the order of words does **not** matter.  
 `Apache Flink` -> A **streaming** dataflow engine that you can use to run real-time stream processing on high-throughput data sources.  
 `Amazon SageMaker BlazingText` -> Provides highly optimized implementations of the **Word2vec(relationships)** and **text classification** algorithms.  
 `Amazon SageMaker NTM(Neural Topic Model)` -> **Unsupervised**, used to organize a corpus of **documents** into topics that contain word **groupings** based on their statistical distribution. Same as `LDA`.  
 `Peered VPCs` -> A networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. (Data does **not traverse** the **public** internet.)  
-`Amazon Macie` -> A **data security service** that uses machine learning (ML) and pattern matching to discover and help protect your sensitive data.  
 `AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrate seamlessly with your **local** area network.  
 `AWS DeepRacer` -> An autonomous 1/18th scale race **car** designed to test **RL** models by racing on a physical track.  
 `Amazon Augmented AI` -> Implement **human reviews** and audits of ML predictions based on your specific requirements, including multiple reviewers.
@@ -295,24 +292,11 @@
 ---
 ## Day 12
 `Cost Function` -> Measures the **performance** of a machine learning model for given data.  
-`Amazon Redshift` -> A fully managed, petabyte-scale data **warehouse service** in the cloud, stores **structured** data.  
 `Canary Deployment` -> In the beginning, the **current** version receives **100%** of user traffic.  
 `Mapping technique` -> For **ordinal**, **categorical** data.  
-`K-fold cross validation` -> A procedure used to **estimate** the performance of the **model** on new data.  
 `Stratified K-fold cross validation` -> For **unbalanced** data to evaluate the model performance.  
 `Amazon SageMaker Autopilot` -> **Automatically** trains and tunes the best machine learning models for *classification* or *regression*, **tabular data(csv)** format is required.  
 `Principal component analysis(PCA)` -> A learning algorithm that **reduces** the **dimensionality** (number of features) within a dataset, can also **visualize** data directly.  
-
-### Date Imputation(Missing Data)
-| Method | Type |
-| --- | --- |
-| KNN | Numerical |
-| Deep Learning | Categorical | 
-| MICE(Multiple Imputation by Chained Equations) | Finds relationships between features |
-| Create a separate boolean column | - |
-| Fill with zeros | - |
-| Regression | - |
-|Impute with median value | For outliers |
 
 ### Note
 * Selete the model has less **penalties**.
@@ -336,7 +320,6 @@
 `EMR File System (EMRFS)` -> An implementation of HDFS that all `Amazon EMR` clusters use for **reading and writing** regular files from Amazon EMR directly to `Amazon S3`.  
 `Random Cut Forest` -> unsupervised, detect **anomalous** data points within a data set, works in `Kinesis Data Analytics`.   
 `AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. Scheduling and allocating the **resources**.    
-`Seq2Seq` -> nlp, need **RecordIO-protobuf** format with **integer** tokens.  
 `K-means` -> Unsupervised, A **cluster** refers to a collection of data points aggregated together because of certain *similarities*. Mandatory parameters: `feature_dim(number of features)` and `k(number of clusters)`, can use for **dimensionality reduction**.  
 `Within-cluster sum of squares(WSS)` -> **"elbow method"**, Determining the **optimal value** of **k** in *k-Means* clustering.  
 `Amazon Quicksight` -> **Anomaly detection**, **forecasting**, **auto-narrative**: customize(personalized dashboard), don't need `SageMaker` for forecasting.  
@@ -353,7 +336,6 @@
 ### Note
 * `Hyperparameter tunning`: Run only **one** training **job** at a time.
 * `Amazon EMR`, **master node**, **core node**, **task node**(can be used in *Spot instance*).
-* `XGBoost`, adjust parameter **subsample** can handle overfitting problem. 
 * Enable **inter-container** encyption for training in **privat VPC**.
 
 ### Question Set
@@ -468,7 +450,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 ### Note
 * `Amazon Kinesis video stream` can **not** stream data from *multiple producers*. 
 * `Amazon Kinesis Data Analytics` can also be used to **data transformation**.
-* `Amazon Kinesis Data Streams` can be ingested from *multiple* sources.
+* `Amazon Kinesis Data Streams` **can** be ingested from *multiple* sources.
 * Increase the *mini-batch size* with the number of *GPUs* **linearly** in order to fully utilize all GPUs.
 
 ### Question Set
@@ -484,9 +466,9 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Logarithm Transformation` -> Decreases the effect of the **outliers**, to be more *normally distributed*.  
 `Residuals` -> Represent the portion of the target that the model is unable to predict. A **positive** residual indicates that the model is **underestimating** the target, whereas a **negative** residual indicates an **overestimation**.(`Residual = Actual value – Predicted value`)  
 `Amazon SQS` -> A **queuing service**, send, store, and receive messages between software components at any volume.  
-`Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of **high-dimension** data.  
 `Amazon Forecast` -> A fully managed service that uses statistical and machine learning algorithms to deliver highly accurate **time series** forecasts. ML background is **not** required.  
 `Blue/Green deployment` -> A deployment strategy in which you create two **separate**, but **identical** environments, once testing is completed, direct all traffic.  
+`AWS Database Migration Service (AWS DMS)` -> A managed *migration* and *replication* service that helps move your database and analytics workloads to AWS
 
 ### Metrics
 | Metrics | Meaning |
@@ -515,6 +497,63 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ### Question Set
 * Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(3&4)`
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 20
+`AWS Direct Connect` -> Connection between **on-premises** network to the **cloud** network.  
+`Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of **high-dimension** data.  
+`Amazon Macie` -> A **data security service** that uses machine learning (ML) and pattern matching to discover and help protect your sensitive data.  
+`Seq2Seq` -> nlp, need **RecordIO-protobuf** format with **integer** tokens. Only supported on **GPU** instance types and is only set up to train on a **single** machine.  
+`Warm Start` -> Start a *hyperparameter tuning job* using one or more **previous** tuning jobs as a starting point.  
+`Amazon Redshift` -> A fully managed, petabyte-scale data **warehouse service** in the cloud, stores **structured** data. Can use **business intelligence** tools.  
+`Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function. Tuning like a **regression** problem.  
+`Perplexity` and `BLEU score` -> Used for evaluating the performance of the machine-translated text.  
+`Logistic regression` -> Supervised, with given specific *features*, predict the outcome as a probability(**binary output**).  
+`K-fold cross validation` -> For **balanced** data, used to **estimate** the performance of the **model** on new data.  
+`AWS DataSync` -> An online data transfer service that moving data between **on-premises** storage systems and **AWS storage** services, and also between AWS storage services.  
+
+
+### XGBoost Hyperparameters
+| Name | Function |
+| --- | --- |
+| Gamma | Regularization |
+| ETA | Overfitting |
+| Subsample | Overfitting |
+| Alpha | L1 regularization |
+| Scale_pos_weight | Adjusts the balance between positive and negative weights. |
+| eval_metric(`validation: error`) | Emphasize **accuracy** |
+| eval_metric(`validation:auc`) | Area under the curve(distinguish between positive and negative samples) |
+
+### Amazon Ground Truth
+| Service | Note |
+| --- | --- |
+| Mechanical Turk | A team of global, on-demand workers from Amazon. |
+| Private labelling workforce | A team of workers from the company. |
+| Vendor | A selection of experienced vendors who specialize in providing data labelling services. |
+
+### Date Imputation(Missing Data)
+| Method | Type |
+| --- | --- |
+| KNN | Numerical |
+| Deep Learning | Categorical | 
+| MICE(Multiple Imputation by Chained Equations) | The most modern technique |
+| Create a separate boolean column | - |
+| Fill with zeros | - |
+| Regression | - |
+|Impute with median value | For outliers |
+
+### Note
+* `Amazon S3` uses a **gateway endpoint** not an *interface endpoint*.
+* For `XGBoost`, when 2 features are found to have a **strong correlation** (positive or negative, like 0.97), one of them should be **removed**, *recommended*.
+* Strongly correlated features **won’t** have a strong impact on *decision trees* algorithm(leave them will only have minimum impact).
+* `kinesis firehose` does not have the ability to send stream to multiple destinations while `kinesis data streams` can.
+* `Kinesis Data Streams` requires scaling manually(`UpdateShardCount`), while `Kinesis Firehose` can scale automatically. 
+* The *true positive rate* is the same as the *sensitivity* of the mode.
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(5&6)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
