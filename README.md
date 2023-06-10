@@ -20,6 +20,7 @@
 * [Day 17](#day-17)
 * [Day 18](#day-18)
 * [Day 19](#day-19)
+* [Day 20](#day-20)
 
 ---
 
@@ -502,17 +503,17 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ---
 ## Day 20
-`AWS Direct Connect` -> Connection between **on-premises** network to the **cloud** network.  
+`AWS Direct Connect` -> **Connection** between **on-premises** network to the **cloud** network.  
 `Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of **high-dimension** data.  
 `Amazon Macie` -> A **data security service** that uses machine learning (ML) and pattern matching to discover and help protect your sensitive data.  
 `Seq2Seq` -> nlp, need **RecordIO-protobuf** format with **integer** tokens. Only supported on **GPU** instance types and is only set up to train on a **single** machine.  
 `Warm Start` -> Start a *hyperparameter tuning job* using one or more **previous** tuning jobs as a starting point.  
 `Amazon Redshift` -> A fully managed, petabyte-scale data **warehouse service** in the cloud, stores **structured** data. Can use **business intelligence** tools.  
 `Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function. Tuning like a **regression** problem.  
-`Perplexity` and `BLEU score` -> Used for evaluating the performance of the machine-translated text.  
+`Perplexity` and `BLEU score` -> Used for evaluating the performance of the **machine-translated** text.  
 `Logistic regression` -> Supervised, with given specific *features*, predict the outcome as a probability(**binary output**).  
 `K-fold cross validation` -> For **balanced** data, used to **estimate** the performance of the **model** on new data.  
-`AWS DataSync` -> An online data transfer service that moving data between **on-premises** storage systems and **AWS storage** services, and also between AWS storage services.  
+`AWS DataSync` -> An online **data transfer service** that moving data between **on-premises** storage systems and **AWS storage** services, and also between AWS storage services.  
 
 
 ### XGBoost Hyperparameters
@@ -522,9 +523,9 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 | ETA | Overfitting |
 | Subsample | Overfitting |
 | Alpha | L1 regularization |
-| Scale_pos_weight | Adjusts the balance between positive and negative weights. |
+| Scale_pos_weight | Adjusts the balance between **positive** and **negative** weights. |
 | eval_metric(`validation: error`) | Emphasize **accuracy** |
-| eval_metric(`validation:auc`) | Area under the curve(distinguish between positive and negative samples) |
+| eval_metric(`validation:auc`) | Area under the curve(distinguish between **positive** and **negative** samples) |
 
 ### Amazon Ground Truth
 | Service | Note |
@@ -538,7 +539,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 | --- | --- |
 | KNN | Numerical |
 | Deep Learning | Categorical | 
-| MICE(Multiple Imputation by Chained Equations) | The most modern technique |
+| MICE(Multiple Imputation by Chained Equations) | The **most** modern technique |
 | Create a separate boolean column | - |
 | Fill with zeros | - |
 | Regression | - |
@@ -548,9 +549,9 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * `Amazon S3` uses a **gateway endpoint** not an *interface endpoint*.
 * For `XGBoost`, when 2 features are found to have a **strong correlation** (positive or negative, like 0.97), one of them should be **removed**, *recommended*.
 * Strongly correlated features **won’t** have a strong impact on *decision trees* algorithm(leave them will only have minimum impact).
-* `kinesis firehose` does not have the ability to send stream to multiple destinations while `kinesis data streams` can.
-* `Kinesis Data Streams` requires scaling manually(`UpdateShardCount`), while `Kinesis Firehose` can scale automatically. 
-* The *true positive rate* is the same as the *sensitivity* of the mode.
+* `kinesis firehose` does **not** have the ability to send stream to **multiple** destinations while `kinesis data streams` can.
+* `Kinesis Data Streams` requires scaling manually(`UpdateShardCount`), while `Kinesis Firehose` can **scale** automatically. 
+* The *true positive rate* is the same as the **sensitivity** of the mode.
 
 ### Question Set
 * Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(5&6)`
