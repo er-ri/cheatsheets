@@ -21,6 +21,7 @@
 * [Day 18](#day-18)
 * [Day 19](#day-19)
 * [Day 20](#day-20)
+* [Day 21](#day-21)
 
 ---
 
@@ -54,7 +55,6 @@
 `Random Search(RS)` -> A technique where random combinations of the **hyperparameters** are used to find the best solution for the built model.  
 `Grid Search` -> A tuning technique that attempts to compute the optimum values of **hyperparameters**.  
 `Depth-first search` -> An algorithm for searching a graph or tree *data structure*.  
-`Amazon FSx for Lustre` -> FSx for Lustre **speeds up** your training jobs by serving your Amazon S3 data to Amazon SageMaker at high speeds.  
 `Amazon EBS(Amazon Elastic Block Store)` -> Provides block level storage volumes for use with EC2 instances.  
 `Amazon Lex` -> Enables you to build applications using a speech or text interface powered by the same technology that powers **Amazon Alexa**.  
 `Amazon Polly` -> Use deep learning technologies to synthesize natural-sounding **human speech**. *Speech Marks*: starts and ends, *SSML*: control, *Lexicons*: customize  
@@ -89,7 +89,6 @@
 * To use SageMaker training, the data should be split into *training*, *validation*, and *test* sets.
 * Correlation: Feature1(0.64) >(**stronger**) Feature2(-0.85) 
 * SageMaker, "Data download failed." -> Check IAM role of **encrypt** and **decrypt** the data
-* SageMaker, Hyperparameter tunning job: `HyperparameterTunner()`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -103,8 +102,6 @@
 `Apache Flink` -> A **streaming** dataflow engine that you can use to run real-time stream processing on high-throughput data sources.  
 `Amazon SageMaker BlazingText` -> Provides highly optimized implementations of the **Word2vec(relationships)** and **text classification** algorithms.  
 `Amazon SageMaker NTM(Neural Topic Model)` -> **Unsupervised**, used to organize a corpus of **documents** into topics that contain word **groupings** based on their statistical distribution. Same as `LDA`.  
-`Peered VPCs` -> A networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. (Data does **not traverse** the **public** internet.)  
-`AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrate seamlessly with your **local** area network.  
 `AWS DeepRacer` -> An autonomous 1/18th scale race **car** designed to test **RL** models by racing on a physical track.  
 `Amazon Augmented AI` -> Implement **human reviews** and audits of ML predictions based on your specific requirements, including multiple reviewers.
 
@@ -143,7 +140,6 @@
 `Multilayer Perceptron (MLP)` -> A fully connected **multi-layer** neural network.  
 `Autoregressive Integrated Moving Average (ARIMA)` -> A method for forecasting or predicting *future* outcomes based on a historical **time series**.  
 `AutoML` -> Choose the *best model* for your time-series data. (including **DeepAR**, **ARIMA**, etc)  
-`Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
 `Service Control Policies (SCPs)` -> A type of **organization policy** that you can use to manage permissions in your organization.  
 `Organizational Unit (OU)` -> A logical **grouping of accounts** in your organization, created using AWS Organizations.
 
@@ -157,7 +153,6 @@
 
 ### Note
 * `DynamoDB Stream` can only be used in `DynamoDB`, `SQL queries` are not supported.
-* A single `Amazon SageMaker endpoint` **cannot** serve two different `models`.
 * Fraud Detection(*positive: fraud*), false **negative**: incorrectly identifying fraudulent transactions as **non-fraudulent**.
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
@@ -180,17 +175,16 @@
 `RecordIO` -> The best **format** choice on models.  
 `AWS Step Functions` -> A visual **workflow service** that helps developers use AWS services to build distributed applications, automate processes, orchestrate microservices, and create data and machine learning (ML) **pipelines**.  
 `Amazon Simple Workflow Service` -> A fully managed **workflow service** for building scalable, resilient applications. More complex then *AWS Step Functions*.  
-`LibSVM` -> A specific **data format** for the data analysis tool LibSVM. *Glue ETL*, *Kinesis Analytics* are not supported.  
 
 ### Note
-* A Spot interruption on the **Master node** will *terminate* the entire *cluster*, and on a **Core node**, it can lead to HDFS *data loss*.
+* A Spot interruption on the **Master node** will *terminate* the entire *cluster*, and on a **Core node**, it can lead to HDFS *data loss*(`Amazon EMR`).
 * **Vanishing gradient** results from small derivates of the **sigmoid** activation function, try **ReLU**.  
 * `BlazingText`: Labels must be prefixed with `__label__`, and the tokens within the sentence - including punctuation - should be `space` separated.
 * **XGBoost 1.0/1.1**: CPU-only algorithms, **XGBoost 1.2/newer**: GPU, Accelerated Computing(EC2, `P3`)
 * **Bring Your Own Containers**: Set `ENV SAGEMAKER_PROGRAM` for `train.py` in the Dockerfile.
 * `SageMaker inter-container traffic encryption`, secured in-transit of private VPC.
 * A large *learning rate* will **overshoot** the true minima, while a small will **slow down** convergence.
-* A large *batch size* will **get stuck** in localized minima.
+* A large *batch size* will **get stuck** in localized *minima*.
 * SageMaker **default IAM role**, buckets' name with "sagemaker" is accessible.
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
@@ -317,7 +311,7 @@
 `XGBoost`  -> An *Extreme Gradient Boosting algorithm* that is optimized for boosted **decision trees**, can **not** be used for **recommending system**, **no scaling** is required. **LibSVM** or **CSV** format are required.  
 `AWS DeepLens` -> *Hardware*, a deep learning-enabled **video camera**.  
 `ImageNet` -> A large visual **database** designed for use in visual object recognition software research.  
-`MapReduce` -> A big data analysis model that **processes data** sets using a parallel algorithm on computer clusters.  
+`MapReduce(Amazon EMR)` -> A big data analysis model that **processes data** sets using a parallel algorithm on computer clusters.  
 `EMR File System (EMRFS)` -> An implementation of HDFS that all `Amazon EMR` clusters use for **reading and writing** regular files from Amazon EMR directly to `Amazon S3`.  
 `Random Cut Forest` -> unsupervised, detect **anomalous** data points within a data set, works in `Kinesis Data Analytics`.   
 `AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. Scheduling and allocating the **resources**.    
@@ -325,14 +319,6 @@
 `Within-cluster sum of squares(WSS)` -> **"elbow method"**, Determining the **optimal value** of **k** in *k-Means* clustering.  
 `Amazon Quicksight` -> **Anomaly detection**, **forecasting**, **auto-narrative**: customize(personalized dashboard), don't need `SageMaker` for forecasting.  
 `Quantile Binning` -> The process of assigning the **same** number of observations to each **bin**, using for **unevenly** distributed data.   
-
-### Kinesis
-| Name | Note |
-| --- | --- |
-| Kinesis Data Stream | Streaming(**real-time**) ingest shards: 1MB/s or 1000 messages/s |
-| Kinesis Data Analytics | **Near real-time** analytics(**SQL query**), can scripts out the **unneeded** data. |
-| Kinesis Data Firehose | **Not real-time**, for **streaming** data(not used to *stream video*) into S3, etc. **Easiest way of Ingestion**, *JSON* -> *Parquet* or *ORC* |
-| Kinesis Video Stream | Streaming **video**(uses Amazon *S3* for backend storage), **analysis** |
 
 ### Note
 * `Hyperparameter tunning`: Run only **one** training **job** at a time.
@@ -455,7 +441,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Increase the *mini-batch size* with the number of *GPUs* **linearly** in order to fully utilize all GPUs.
 
 ### Question Set
-* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(1&2)`
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(1-OK&2)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -509,7 +495,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Seq2Seq` -> nlp, need **RecordIO-protobuf** format with **integer** tokens. Only supported on **GPU** instance types and is only set up to train on a **single** machine.  
 `Warm Start` -> Start a *hyperparameter tuning job* using one or more **previous** tuning jobs as a starting point.  
 `Amazon Redshift` -> A fully managed, petabyte-scale data **warehouse service** in the cloud, stores **structured** data. Can use **business intelligence** tools.  
-`Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function. Tuning like a **regression** problem.  
 `Perplexity` and `BLEU score` -> Used for evaluating the performance of the **machine-translated** text.  
 `Logistic regression` -> Supervised, with given specific *features*, predict the outcome as a probability(**binary output**).  
 `K-fold cross validation` -> For **balanced** data, used to **estimate** the performance of the **model** on new data.  
@@ -549,7 +534,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * `Amazon S3` uses a **gateway endpoint** not an *interface endpoint*.
 * For `XGBoost`, when 2 features are found to have a **strong correlation** (positive or negative, like 0.97), one of them should be **removed**, *recommended*.
 * Strongly correlated features **won’t** have a strong impact on *decision trees* algorithm(leave them will only have minimum impact).
-* `kinesis firehose` does **not** have the ability to send stream to **multiple** destinations while `kinesis data streams` can.
+* `kinesis firehose` does **not** have the ability to *send* stream to **multiple** destinations while `kinesis data streams` can.
 * `Kinesis Data Streams` requires scaling manually(`UpdateShardCount`), while `Kinesis Firehose` can **scale** automatically. 
 * The *true positive rate* is the same as the **sensitivity** of the mode.
 
@@ -559,10 +544,36 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
 ---
+## Day 21
+`Peered VPCs` -> A networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. (Data does **not traverse** the **public** internet.)  
+`Recursive Partitioning` -> A statistical method for multivariable analysis(`AWS GLUE`).  
+`AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrates with **existing camera** networks.  
+`Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
+`Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function. Tuning like a **regression** problem.  
+`Amazon FSx for Lustre` -> FSx for Lustre **speeds up** your training jobs by serving your Amazon S3 data to Amazon SageMaker at high speeds, high **throughput** and low **latency**.  
+
+### Kinesis
+| Name | Note |
+| --- | --- |
+| Kinesis Data Stream | Streaming(**real-time**) ingest shards: 1MB/s or 1000 messages/s |
+| Kinesis Data Analytics | **Near real-time** analytics(**real-time SQL query**), can scripts out the **unneeded** data. |
+| Kinesis Data Firehose | **Not real-time**, for **streaming** data(not used to *stream video*) into S3, etc. **Easiest way of Ingestion**, built-in lambda: *JSON* -> *Parquet* or *ORC* |
+| Kinesis Video Stream | Streaming **video**(uses Amazon *S3* for backend storage), **analysis** |
+
+### Note
+* A single `Amazon SageMaker endpoint` **cannot** serve two different `models`, support deploy different **versions** of the models behind a single endpoint.
+* SageMaker, Hyperparameter tunning job: `HyperparameterTunner()`
+
+### Question Set
+* AWS Skill Builder -> AWS Certified Machine Learning - Specialty Official Practice Question Set (MLS-C01 - English)
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
 
 ## Resources
-* AWS Skill Builder -> AWS Certified Machine Learning - Specialty Official Practice Question Set (MLS-C01 - English)
-* AWS Skill Builder -> Exam Readiness: AWS Certified Machine Learning - Specialty
+* AWS Skill Builder -> AWS Certified Machine Learning - Specialty Official Practice Question Set (MLS-C01 - English) `(20 questions)`
+* AWS Skill Builder -> Exam Readiness: AWS Certified Machine Learning - Specialty `(43 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty 2023 - Hands On! `(10 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty Full Practice Exam `(65 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty: 3 PRACTICE EXAMS `(10+65+65 questions)`
