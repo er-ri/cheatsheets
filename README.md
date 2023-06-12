@@ -22,6 +22,7 @@
 * [Day 19](#day-19)
 * [Day 20](#day-20)
 * [Day 21](#day-21)
+* [Day 22](#day-22)
 
 ---
 
@@ -32,7 +33,6 @@
 `Amazon SageMaker Object Detection` -> MXNet algorithm detects and **classifies** objects in images using a single deep neural network. Require code development.   
 `Elasticsearch(Amazon)` -> A distributed, RESTful *search* and *analytics* engine capable of addressing a growing number of use cases. Individual **server** required.   
 `SageMaker Ground Truth` -> A data **labeling service** that makes it easy to label data(option: *Amazon Mechanical Turk*)   
-`Amazon SageMaker Neo` -> Enables developers to **optimize** machine learning (ML) models for inference on SageMaker in the cloud and supported devices at the **edge**.   
 `Amazon EMR` -> **Not serverless**, a managed cluster platform that simplifies running big data frameworks, such as **Apache Hadoop** and **Apache Spark**.(File system: *hdfs*, emrfs, local file system)   
 `Sparkmagic` -> A set of **tools** for interactively working with remote *Spark clusters* through Livy, a Spark REST server, in Jupyter notebooks.  
 `SageMakerEstimator` -> Tight integration between *Spark* and *SageMaker* for several models including XGBoost, and offers the **simplest** solution  
@@ -152,7 +152,7 @@
 | Bernoulli distribution | **n = 1**, the binomial distribution is a Bernoulli distribution. |
 
 ### Note
-* `DynamoDB Stream` can only be used in `DynamoDB`, `SQL queries` are not supported.
+* `DynamoDB Stream` can only be used in `DynamoDB`, `SQL queries` are **not** supported.
 * Fraud Detection(*positive: fraud*), false **negative**: incorrectly identifying fraudulent transactions as **non-fraudulent**.
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
@@ -304,7 +304,6 @@
 ---
 ## Day 13
 `cyclical features` -> Hours of the day, days of the week, months in a year, and wind direction.  
-`Amazon IoT Greengrass` -> *Software*, extends *cloud capabilities* to **local devices**.  
 `Tf-idf` -> `tf('fox', sent) * idf('fox', doc)`, where `tf('fox', sent) = 2/12` and `idf('fox', doc) = log(2/2) = 0`, respectively. Dimension of the matrix: `(sentences, unigram & bigram)`.   
 `Rolling deployment` -> A deployment strategy that slowly **replaces previous** versions of an application with new versions.  
 `Nvidia jetson edge` -> AI computing platform for GPU-accelerated parallel processing in mobile embedded ... Robotics and **Edge** Computing.  
@@ -316,7 +315,6 @@
 `Random Cut Forest` -> unsupervised, detect **anomalous** data points within a data set, works in `Kinesis Data Analytics`.   
 `AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. Scheduling and allocating the **resources**.    
 `K-means` -> Unsupervised, A **cluster** refers to a collection of data points aggregated together because of certain *similarities*. Mandatory parameters: `feature_dim(number of features)` and `k(number of clusters)`, can use for **dimensionality reduction**.  
-`Within-cluster sum of squares(WSS)` -> **"elbow method"**, Determining the **optimal value** of **k** in *k-Means* clustering.  
 `Amazon Quicksight` -> **Anomaly detection**, **forecasting**, **auto-narrative**: customize(personalized dashboard), don't need `SageMaker` for forecasting.  
 `Quantile Binning` -> The process of assigning the **same** number of observations to each **bin**, using for **unevenly** distributed data.   
 
@@ -335,9 +333,7 @@
 ## Day 14
 `Support Vector Machine(SVM) with RBF kernel` -> Supervised, for **classification** and **regression**, can also be used for **dimensionality reduction**. Can classify for **non-linear** problem.  
 `AWS Glue's FindMatches` -> A way to perform **de-duplication** as part of *Glue ETL*.  
-`AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. Not meant to process *near real-time* data. Not support **RecordIO-Protobuf**, **Timestream** nor **LibSVM** format. Using **prefixes**.   
 `Line Chart` -> A graph that uses lines to connect individual data points. Can **not** be used to **spot outliers**.   
-`Amazon SageMaker IP Insights` -> An *unsupervised* learning algorithm that learns the usage patterns for **IPv4 addresses**, using for **Fraud Detection**.  
 `PCA in randomized mode` -> For datasets with a *large* number of **observations** and **features**. (*regular mode*)  
 `SageMaker Elastic Inference` -> Allows you to attach a **low-cost GPU** to your instance. Using to improve the inference **throughput**, can **not** replace `Auto Scaling`.    
 `Robust Standardization` -> Reduces the effect of the **outliers** in the features.  
@@ -453,7 +449,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Logarithm Transformation` -> Decreases the effect of the **outliers**, to be more *normally distributed*.  
 `Residuals` -> Represent the portion of the target that the model is unable to predict. A **positive** residual indicates that the model is **underestimating** the target, whereas a **negative** residual indicates an **overestimation**.(`Residual = Actual value – Predicted value`)  
 `Amazon SQS` -> A **queuing service**, send, store, and receive messages between software components at any volume.  
-`Amazon Forecast` -> A fully managed service that uses statistical and machine learning algorithms to deliver highly accurate **time series** forecasts. ML background is **not** required.  
+`Amazon Forecast` -> A fully managed service that uses statistical and machine learning algorithms to deliver highly accurate **time series** forecasts. *ML background* is **not** required.  
 `Blue/Green deployment` -> A deployment strategy in which you create two **separate**, but **identical** environments, once testing is completed, direct all traffic.  
 `AWS Database Migration Service (AWS DMS)` -> A managed *migration* and *replication* service that helps move your database and analytics workloads to AWS
 
@@ -463,17 +459,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 | High bias | **Underfitting** (too simple) (The model has not established the perfect relation between inputs and outputs) |
 | High variance | **Overfitting** (too complex) (model not generalizing well to new data points) |
 
-### S3
-| Name | Type | Note |
-| --- | --- | --- |
-| S3 Standard | **Frequent** |Processed data, high availability |
-| S3 Standard-IA | - | Low availability |
-| S3 Intelligent tiering | - | Random access, high availability | 
-| S3 Glacier Instant Retrieval | **Rarely** accessed, requires retrieval in milliseconds. | Processed data |
-| S3 Glacier Deep Archive | Accessed **once** or twice in a year | Raw data, high availability |
-* `S3 Lifecycle Rule`: Automating the archiving or deletion of old data
-* `S3 versioning`: Keep the older version of the objects.
-
 ### Note
 * When the graph has a long **right tail**(fewer data), it is **right-skewed** and vice versa. 
 * `Amazon Kinesis Firehose` can **transform** the data from one format to another.
@@ -481,9 +466,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * The prebuilt containers in `SageMaker` supports **Python** SDK not *R*.
 * All the *containers* of the **same model** should reside on the **same EC2** instance.
 * `Amazon Blazingtext`, the training/validation file should contain a training sentence **per line** along with the labels. 
-
-### Question Set
-* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(3&4)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -550,7 +532,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrates with **existing camera** networks.  
 `Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
 `Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function. Tuning like a **regression** problem.  
-`Amazon FSx for Lustre` -> FSx for Lustre **speeds up** your training jobs by serving your Amazon S3 data to Amazon SageMaker at high speeds, high **throughput** and low **latency**.  
+`Amazon FSx for Lustre` -> FSx for Lustre **speeds up** your training jobs by serving your `Amazon S3` data to Amazon SageMaker at high speeds, high **throughput** and low **latency**.  
 
 ### Kinesis
 | Name | Note |
@@ -566,6 +548,34 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ### Question Set
 * AWS Skill Builder -> AWS Certified Machine Learning - Specialty Official Practice Question Set (MLS-C01 - English)
+* AWS Skill Builder -> Exam Readiness: AWS Certified Machine Learning - Specialty 
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+---
+## Day 22
+`AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. Not meant to process *near real-time* data. Not support **RecordIO-Protobuf**, **Timestream** nor **LibSVM** format. Using **prefixes**.   
+`network isolation` -> The containers **can't** make any *outbound* network calls, even to other AWS services such as `Amazon S3`.  
+`Amazon SageMaker IP Insights` -> An **unsupervised** learning algorithm that learns the usage patterns for **IPv4 addresses**, using for **Fraud Detection**.  
+`Within-cluster sum of squares(WSS)` -> **"elbow method"**, by ploting a `Line Chart` of showing a distortion score, could determining the **optimal value** of **k** in *k-Means* clustering.  
+`Amazon SageMaker Neo` -> Enables developers to **optimize** machine learning (ML) models for inference on SageMaker in the cloud and supported devices at the **edge**.   
+`Amazon IoT Greengrass` -> *Software*, extends *cloud capabilities* to **local devices**.  
+
+### S3
+| Name | Type | Note |
+| --- | --- | --- |
+| S3 Standard | **Frequent** | **Processed** data, high availability |
+| S3 Standard-IA | **Less** frequent | Low availability |
+| S3 Intelligent tiering | **Random** access | **Raw** data, high availability | 
+| S3 Glacier Instant Retrieval | **Rarely** accessed, requires retrieval in milliseconds. | **Processed** data |
+| S3 Glacier Deep Archive | Accessed **once** or twice in a year | **Raw** data, high availability |
+* `S3 Lifecycle Rule`: Automating the archiving or deletion of old data
+* `S3 versioning`: Keep the older version of the objects.
+
+### Note
+* Use `PCA` for dimensionality reduction when large features case even the question was **not** mentioned.
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(3&4)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
