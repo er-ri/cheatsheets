@@ -23,6 +23,7 @@
 * [Day 20](#day-20)
 * [Day 21](#day-21)
 * [Day 22](#day-22)
+* [Day 23](#day-23)
 
 ---
 
@@ -75,12 +76,6 @@
 | Gradient descent | An optimization algorithm that's used when training a machine learning model. |
 | **Adagrad** | An algorithm for gradient-based optimization. | 
 | **Rmsprop** | An *extension* of gradient descent and the **AdaGrad** version of gradient descent that uses a decaying average of partial gradients in the adaptation of the step size for each parameter. |
-
-### L1, L2 Regularation
-| Name | Description |
-| --- | --- |
-| L1 | Reduce **dimensionality** |
-| L2 | Adjust **weight** for features |
 
 ### Note
 * SageMaker, to update an `Endpoint`, you must create a new `EndpointConfig`
@@ -431,9 +426,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Content-based` -> Recommander system, Recommandations are based on the **contents**.  
 
 ### Note
-* `Amazon Kinesis video stream` can **not** stream data from *multiple producers*. 
-* `Amazon Kinesis Data Analytics` can also be used to **data transformation**.
-* `Amazon Kinesis Data Streams` **can** be ingested from *multiple* sources.
 * Increase the *mini-batch size* with the number of *GPUs* **linearly** in order to fully utilize all GPUs.
 
 ### Question Set
@@ -474,14 +466,12 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `AWS Direct Connect` -> **Connection** between **on-premises** network to the **cloud** network.  
 `Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of **high-dimension** data.  
 `Amazon Macie` -> A **data security service** that uses machine learning (ML) and pattern matching to discover and help protect your sensitive data.  
-`Seq2Seq` -> nlp, need **RecordIO-protobuf** format with **integer** tokens. Only supported on **GPU** instance types and is only set up to train on a **single** machine.  
 `Warm Start` -> Start a *hyperparameter tuning job* using one or more **previous** tuning jobs as a starting point.  
 `Amazon Redshift` -> A fully managed, petabyte-scale data **warehouse service** in the cloud, stores **structured** data. Can use **business intelligence** tools.  
 `Perplexity` and `BLEU score` -> Used for evaluating the performance of the **machine-translated** text.  
 `Logistic regression` -> Supervised, with given specific *features*, predict the outcome as a probability(**binary output**).  
 `K-fold cross validation` -> For **balanced** data, used to **estimate** the performance of the **model** on new data.  
 `AWS DataSync` -> An online **data transfer service** that moving data between **on-premises** storage systems and **AWS storage** services, and also between AWS storage services.  
-
 
 ### XGBoost Hyperparameters
 | Name | Function |
@@ -516,12 +506,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * `Amazon S3` uses a **gateway endpoint** not an *interface endpoint*.
 * For `XGBoost`, when 2 features are found to have a **strong correlation** (positive or negative, like 0.97), one of them should be **removed**, *recommended*.
 * Strongly correlated features **won’t** have a strong impact on *decision trees* algorithm(leave them will only have minimum impact).
-* `kinesis firehose` does **not** have the ability to *send* stream to **multiple** destinations while `kinesis data streams` can.
-* `Kinesis Data Streams` requires scaling manually(`UpdateShardCount`), while `Kinesis Firehose` can **scale** automatically. 
 * The *true positive rate* is the same as the **sensitivity** of the mode.
-
-### Question Set
-* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(5&6)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -551,9 +536,10 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * AWS Skill Builder -> Exam Readiness: AWS Certified Machine Learning - Specialty 
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
+
 ---
 ## Day 22
-`AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. Not meant to process *near real-time* data. Not support **RecordIO-Protobuf**, **Timestream** nor **LibSVM** format. Using **prefixes**.   
+`AWS Glue` -> A **serverless** Apache **Spark** platform, *data preprocessing* for analysis through automated extract, transform and load (**ETL**) processes. Not meant to process *near real-time* data. **Not** support **RecordIO-Protobuf**, **Timestream** nor **LibSVM** format. Using **prefixes**.   
 `network isolation` -> The containers **can't** make any *outbound* network calls, even to other AWS services such as `Amazon S3`.  
 `Amazon SageMaker IP Insights` -> An **unsupervised** learning algorithm that learns the usage patterns for **IPv4 addresses**, using for **Fraud Detection**.  
 `Within-cluster sum of squares(WSS)` -> **"elbow method"**, by ploting a `Line Chart` of showing a distortion score, could determining the **optimal value** of **k** in *k-Means* clustering.  
@@ -572,10 +558,32 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * `S3 versioning`: Keep the older version of the objects.
 
 ### Note
-* Use `PCA` for dimensionality reduction when large features case even the question was **not** mentioned.
+* Use `PCA` for dimensionality reduction for the large features cases even the question was **not** mentioned.
 
 ### Question Set
 * Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(3&4)`
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 23
+`Seq2Seq` -> nlp, need **RecordIO-protobuf** format with **integer** tokens. Only supported on **GPU** instance(Accelerated Computing: `p*` & `g4*`) types and is only set up to train on a **single** machine.  
+
+### Kinesis
+| Name | Send multiple | Ingested from multiple | Auto scaling | 
+| --- | --- | --- | --- |
+| Kinesis Data Streams | Yes | Yes | No(manually (`UpdateShardCount`) |
+| kinesis firehose | No | Yes | Yes |
+| Kinesis video stream | No | No | - |
+
+### L1, L2 Regularation
+| Name | Description |
+| --- | --- |
+| L1 | Reduce **dimensionality** (by zero the weights of features) |
+| L2 | Adjust **weight** for features (can also use for **underfitting**) |
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(5-ok&6-ok)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
