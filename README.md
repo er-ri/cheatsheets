@@ -24,6 +24,7 @@
 * [Day 21](#day-21)
 * [Day 22](#day-22)
 * [Day 23](#day-23)
+* [Day 24](#day-24)
 
 ---
 
@@ -34,7 +35,6 @@
 `Amazon SageMaker Object Detection` -> MXNet algorithm detects and **classifies** objects in images using a single deep neural network. Require code development.   
 `Elasticsearch(Amazon)` -> A distributed, RESTful *search* and *analytics* engine capable of addressing a growing number of use cases. Individual **server** required.   
 `SageMaker Ground Truth` -> A data **labeling service** that makes it easy to label data(option: *Amazon Mechanical Turk*)   
-`Amazon EMR` -> **Not serverless**, a managed cluster platform that simplifies running big data frameworks, such as **Apache Hadoop** and **Apache Spark**.(File system: *hdfs*, emrfs, local file system)   
 `Sparkmagic` -> A set of **tools** for interactively working with remote *Spark clusters* through Livy, a Spark REST server, in Jupyter notebooks.  
 `SageMakerEstimator` -> Tight integration between *Spark* and *SageMaker* for several models including XGBoost, and offers the **simplest** solution  
 `MLLib` -> Built on top of *Spark*, MLlib is a scalable **machine learning library** consisting of common learning algorithms and utilities, including classification, regression, clustering, collaborative filtering, dimensionality reduction, and underlying optimization primitives.  
@@ -60,7 +60,6 @@
 `Amazon Lex` -> Enables you to build applications using a speech or text interface powered by the same technology that powers **Amazon Alexa**.  
 `Amazon Polly` -> Use deep learning technologies to synthesize natural-sounding **human speech**. *Speech Marks*: starts and ends, *SSML*: control, *Lexicons*: customize  
 `Amazon Transcribe` -> Converts **audio input into text**, which opens the door for various text analytics applications on voice input.  
-`Amazon Athena` -> An interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (**Amazon S3**) using standard **SQL**. **Serverless**   
 `Xavier Initialization` -> An attempt to improve the *initialization* of neural network **weighted inputs**, in order to avoid some traditional problems in machine learning.  
 
 ### Scaler
@@ -167,7 +166,6 @@
 ---
 ## Day 6
 `Amazon Aurora` -> A fully managed relational database engine that's compatible with *MySQL* and *PostgreSQL*.  
-`RecordIO` -> The best **format** choice on models.  
 `AWS Step Functions` -> A visual **workflow service** that helps developers use AWS services to build distributed applications, automate processes, orchestrate microservices, and create data and machine learning (ML) **pipelines**.  
 `Amazon Simple Workflow Service` -> A fully managed **workflow service** for building scalable, resilient applications. More complex then *AWS Step Functions*.  
 
@@ -206,7 +204,6 @@
 ### Note
 * `Python Shell` supports `AWS Glue` jobs.
 * `number_of_shards = max (incoming_write_bandwidth_in_KB/1000, outgoing_read_bandwidth_in_KB/2000)`
-* `M4` instance, no **GPU** support, cheaper.
 * `Amazon SageMaker` supports authorization based on **resource tags**.
 * When a model is **underfitting**, then adding **more features** to the model or **removing regularization**.
 
@@ -299,11 +296,9 @@
 ---
 ## Day 13
 `cyclical features` -> Hours of the day, days of the week, months in a year, and wind direction.  
-`Tf-idf` -> `tf('fox', sent) * idf('fox', doc)`, where `tf('fox', sent) = 2/12` and `idf('fox', doc) = log(2/2) = 0`, respectively. Dimension of the matrix: `(sentences, unigram & bigram)`.   
 `Rolling deployment` -> A deployment strategy that slowly **replaces previous** versions of an application with new versions.  
 `Nvidia jetson edge` -> AI computing platform for GPU-accelerated parallel processing in mobile embedded ... Robotics and **Edge** Computing.  
 `XGBoost`  -> An *Extreme Gradient Boosting algorithm* that is optimized for boosted **decision trees**, can **not** be used for **recommending system**, **no scaling** is required. **LibSVM** or **CSV** format are required.  
-`AWS DeepLens` -> *Hardware*, a deep learning-enabled **video camera**.  
 `ImageNet` -> A large visual **database** designed for use in visual object recognition software research.  
 `MapReduce(Amazon EMR)` -> A big data analysis model that **processes data** sets using a parallel algorithm on computer clusters.  
 `EMR File System (EMRFS)` -> An implementation of HDFS that all `Amazon EMR` clusters use for **reading and writing** regular files from Amazon EMR directly to `Amazon S3`.  
@@ -442,7 +437,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Residuals` -> Represent the portion of the target that the model is unable to predict. A **positive** residual indicates that the model is **underestimating** the target, whereas a **negative** residual indicates an **overestimation**.(`Residual = Actual value – Predicted value`)  
 `Amazon SQS` -> A **queuing service**, send, store, and receive messages between software components at any volume.  
 `Amazon Forecast` -> A fully managed service that uses statistical and machine learning algorithms to deliver highly accurate **time series** forecasts. *ML background* is **not** required.  
-`Blue/Green deployment` -> A deployment strategy in which you create two **separate**, but **identical** environments, once testing is completed, direct all traffic.  
+`Blue/Green deployment` -> A deployment strategy in which you create two **separate**, but **identical** environments, once testing is completed, direct **all** traffic.  
 `AWS Database Migration Service (AWS DMS)` -> A managed *migration* and *replication* service that helps move your database and analytics workloads to AWS
 
 ### Metrics
@@ -453,7 +448,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ### Note
 * When the graph has a long **right tail**(fewer data), it is **right-skewed** and vice versa. 
-* `Amazon Kinesis Firehose` can **transform** the data from one format to another.
 * A `KMS key policy` permission should be granted to the **Role** who are going to access the data reside in S3. 
 * The prebuilt containers in `SageMaker` supports **Python** SDK not *R*.
 * All the *containers* of the **same model** should reside on the **same EC2** instance.
@@ -490,17 +484,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 | Mechanical Turk | A team of global, on-demand workers from Amazon. |
 | Private labelling workforce | A team of workers from the company. |
 | Vendor | A selection of experienced vendors who specialize in providing data labelling services. |
-
-### Date Imputation(Missing Data)
-| Method | Type |
-| --- | --- |
-| KNN | Numerical |
-| Deep Learning | Categorical | 
-| MICE(Multiple Imputation by Chained Equations) | The **most** modern technique |
-| Create a separate boolean column | - |
-| Fill with zeros | - |
-| Regression | - |
-|Impute with median value | For outliers |
 
 ### Note
 * `Amazon S3` uses a **gateway endpoint** not an *interface endpoint*.
@@ -588,6 +571,58 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
 ---
+## Day 24
+`Tf-idf(Term Frequency-Inverse Document Frequency)` -> `tf('fox', sent) * idf('fox', doc)`, where `tf('fox', sent) = 2/12` and `idf('fox', doc) = log(2/2) = 0`, respectively. Dimension of the matrix: `(sentences, unigram + bigram)`, *symbols* are **not** counted. Give less weight to the less frequent words in the dataset, and allow the more informative and frequent words to have a greater impact on the sentiment analysis.   
+`Naive Bayes classifier` -> A collection of **classification** algorithms based on Bayes' Theorem, good for *binary problem*.  
+`Amazon Athena` -> An interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (**Amazon S3**) using standard **SQL**. **Serverless**, **Parquet** format.  
+`Amazon EMR` -> **Not serverless**, a managed cluster platform that simplifies running *big data frameworks*, such as **Apache Hadoop** and **Apache Spark**.(File system: *hdfs*, emrfs, local file system)   
+`AWS DeepLens` -> *Hardware*, a deep learning-enabled **video camera**.  
+
+### Date Imputation(Missing Data)
+| Method | Type |
+| --- | --- |
+| KNN | Numerical |
+| Deep Learning | Categorical | 
+| MICE(**Multiple Imputation** by Chained Equations) | The **most** modern technique |
+| Create a separate boolean column | - |
+| Fill with zeros | - |
+| Regression | - |
+|Impute with median value | For outliers |
+
+### Note
+* **Decreasing** the class probability threshold makes the model more **sensitive**, marks more positive cases.
+* Handle review **missing** data, *copy* the entire review to summary. 
+* Use `Object2Vec` instead of `Word2Vec` when the target is for *sentences* or *paragraphs*.
+
+### Online Practice
+* **Air quality** prediction is a regression problem. 4
+* Use `AWS KMS` to secure date on `S3` at rest. 5
+* `AWS Glue` can **not** be used to train a model. 9
+* `SageMaker` needs data to be on `S3`. 10
+* **Customer churn** is a classification problem(YES or NO). 12
+* **Trend** and **seasonality** do **not** take *bias* into account. 13
+* `S3` **restrict access** using *DENY* if sourceVpce (vpc endpoint), or sourceVpc (vpc) is not equal. 15
+* Makesure the Docker container is **NVIDIA-Docker compatible** if you want to use GPU. 18
+* `Amazon Kinesis Firehose` can **transform**(simple) the data from one format to another. 22
+* `Naive Bayes classifier` 25
+* 26
+* nlp: To *lower case*, *remove stopwords*, *tokneization*. 27
+* **Data augmentation** for *overfitting*. 29
+* **Overfitting**, **not** *generalized* enough. 39
+* **Overfitting**, **decreasing** feature *combinations*(removing features). 44
+* `RecordIO`, the best **format** choice for `SageMaker. 56  
+* **Rescaling** the *entire* dataset before splitting it can lead to *data leakage*, rescale the training set and apply the *same* scaling to the validation and test sets. 59
+* You could install *SageMaker docker container*(tensorflow, etc) for **local training**. 60
+* `Amazon Kinesis Data Analytics` can use `lamda` to convert GZIP. 62
+70
+
+### Question Set
+* Machine Learning – Specialty (MLS-C01) Sample Exam Questions (2,6,8,9)
+* https://www.examtopics.com/exams/amazon/aws-certified-machine-learning-specialty/view/14/
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
 
 ## Resources
 * AWS Skill Builder -> AWS Certified Machine Learning - Specialty Official Practice Question Set (MLS-C01 - English) `(20 questions)`
@@ -598,6 +633,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [2023] `(65 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023] `(20 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(20*6 questions)`
+* Machine Learning – Specialty (MLS-C01) Sample Exam Questions `(10 questions)`
 
 ---
 
