@@ -45,7 +45,6 @@
 
 ## Day 2
 `Qualitative data` -> **Non-numeric** forms of data.  
-`T-SNE(T-Distributed Stochastic Neighbor Embedding)` -> An unsupervised, non-linear technique primarily used for data exploration, **dimensionality reduction** and **visualizing high-dimensional** data.  
 `Histogram` -> A graph used to represent the frequency **distribution** of a few data points of one variable.  
 `Scatterplot` -> Uses dots to represent values for **two different** numeric variables. Spot **outliers**.  
 `Seaborn distribution plot(distplot)` -> Depicts the variation in the **data distribution**.  
@@ -406,7 +405,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * `SageMaker built in XGBoost`, no code necessary, automatically **scaling**, do **not** perform *one-hot encoding* on **binary** features. 
 
 ### Question Set
-* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023] `(Practice Test)`
+* Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023] `(Practice Test) - OK`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -544,7 +543,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Use `PCA` for dimensionality reduction for the large features cases even the question was **not** mentioned.
 
 ### Question Set
-* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(3&4)`
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(3&4) - OK`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -572,7 +571,10 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ---
 ## Day 24
-`Tf-idf(Term Frequency-Inverse Document Frequency)` -> `tf('fox', sent) * idf('fox', doc)`, where `tf('fox', sent) = 2/12` and `idf('fox', doc) = log(2/2) = 0`, respectively. Dimension of the matrix: `(sentences, unigram + bigram)`, *symbols* are **not** counted. Give less weight to the less frequent words in the dataset, and allow the more informative and frequent words to have a greater impact on the sentiment analysis.   
+`Tf-idf(Term Frequency-Inverse Document Frequency)` -> `tf('fox', sent) * idf('fox', doc)`, where `tf('fox', sent) = 2/12` and `idf('fox', doc) = log(2/2) = 0`, respectively. Dimension of the matrix: `(sentences, unigram + bigram)`, *symbols* are **not** counted. Give less weight to the less frequent words in the dataset, and allow the more informative and frequent words to have a greater impact on the sentiment analysis. 
+ 
+---
+
 `Naive Bayes classifier` -> A collection of **classification** algorithms based on Bayes' Theorem, good for *binary problem*.  
 `Amazon Athena` -> An interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (**Amazon S3**) using standard **SQL**. **Serverless**, **Parquet** format.  
 `Amazon EMR` -> **Not serverless**, a managed cluster platform that simplifies running *big data frameworks*, such as **Apache Hadoop** and **Apache Spark**.(File system: *hdfs*, emrfs, local file system)   
@@ -614,11 +616,30 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * **Rescaling** the *entire* dataset before splitting it can lead to *data leakage*, rescale the training set and apply the *same* scaling to the validation and test sets. 59
 * You could install *SageMaker docker container*(tensorflow, etc) for **local training**. 60
 * `Amazon Kinesis Data Analytics` can use `lamda` to convert GZIP. 62
-70
 
 ### Question Set
-* Machine Learning – Specialty (MLS-C01) Sample Exam Questions (2,6,8,9)
+* Machine Learning – Specialty (MLS-C01) Sample Exam Questions `(2,6,8,9) - OK`
 * https://www.examtopics.com/exams/amazon/aws-certified-machine-learning-specialty/view/14/
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 25
+`T-SNE(T-Distributed Stochastic Neighbor Embedding)` -> An unsupervised, non-linear technique primarily used for data exploration, **dimensionality reduction**, **visualizing high-dimensional** data, **grouping**.  
+
+### Note
+* `Amazon ECR` save algorithm code. 74
+* **Tagging a Docker image** means giving the image a specific label or name that distinguishes it from other versions or variants of the same image. 78
+* Change class **wights** of loss function to improve Recall. 81
+* **Two linear dependent features** will create a *singular matrix* during optimization. 84 
+* `t-SNE` can do **grouping** and **visualization**. 89
+* Run a **correlation check** of all features against the **target** variable. Remove features with **low** target variable correlation scores. 92
+* `Stratified k-fold cross-validation` for inbalanced dataset with `k=5`(standard value). 100
+
+100
+
+### Question Set
+* https://www.examtopics.com/exams/amazon/aws-certified-machine-learning-specialty/view/20/
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
