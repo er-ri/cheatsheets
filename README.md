@@ -25,6 +25,8 @@
 * [Day 22](#day-22)
 * [Day 23](#day-23)
 * [Day 24](#day-24)
+* [Day 25](#day-25)
+* [Day 26](#day-26)
 
 ---
 
@@ -32,7 +34,6 @@
 `Apache Spark` -> An open-source unified analytics engine for **large-scale** data processing.  
 `Object2Vec` -> A general-purpose neural **embedding** algorithm that is highly customizable. It can learn **low-dimensional** dense embeddings of *high-dimensional* objects, can find semantically **similar** objects.    
 `Semantic segmentation` -> Supervised, Categorize each **pixel** in an image into a class or object.   
-`Amazon SageMaker Object Detection` -> MXNet algorithm detects and **classifies** objects in images using a single deep neural network. Require code development.   
 `Elasticsearch(Amazon)` -> A distributed, RESTful *search* and *analytics* engine capable of addressing a growing number of use cases. Individual **server** required.   
 `SageMaker Ground Truth` -> A data **labeling service** that makes it easy to label data(option: *Amazon Mechanical Turk*)   
 `Sparkmagic` -> A set of **tools** for interactively working with remote *Spark clusters* through Livy, a Spark REST server, in Jupyter notebooks.  
@@ -96,7 +97,6 @@
 `Amazon SageMaker BlazingText` -> Provides highly optimized implementations of the **Word2vec(relationships)** and **text classification** algorithms.  
 `Amazon SageMaker NTM(Neural Topic Model)` -> **Unsupervised**, used to organize a corpus of **documents** into topics that contain word **groupings** based on their statistical distribution. Same as `LDA`.  
 `AWS DeepRacer` -> An autonomous 1/18th scale race **car** designed to test **RL** models by racing on a physical track.  
-`Amazon Augmented AI` -> Implement **human reviews** and audits of ML predictions based on your specific requirements, including multiple reviewers.
 
 ### EC2 Types
 | Option | Discount |
@@ -119,7 +119,6 @@
 `Kinesis Client Library(KCL)` -> Acts as an intermediary between your record **processing** logic and *Kinesis Data Streams*. It **cannot** be used on the **source system** to produce real time data.  
 `Data Augmentation` -> A set of techniques to artificially **increase** the amount of data by generating **new data** points from existing data.  
 `Image localization` -> Aims to locate the main **single** (or most visible) **object** in an image.  
-`Image Classification` -> Assigning a **label** or class to an entire image.  
 `Instance Segmentation` -> Deals with detecting instances of objects and demarcating their **boundaries**.  
 `Weight Decay` -> A **regularization** technique by adding a small penalty, usually the L2 norm of the weights (all the weights of the model).  
 `Anaconda` -> An open-source distribution of the Python and R programming languages for **data science** that aims to simplify package management and deployment.  
@@ -197,7 +196,6 @@
 `AWS Glue crawler` ->  A program that **connects** to a data store (source or target) such as Amazon S3, used for automated collection and maintenance of **metadata** in the Glue Catalog.  
 `Batch Transform` -> To get inferences for an **entire dataset**.  
 `Precision-Recall Area-Under-Curve (PR AUC)` -> For **imbalanced** datasets, focus on the **positive** class.  
-`FM(Factorization Machines)` -> Supervised, a general-purpose supervised learning algorithm that you can use for both **classification** and **regression** tasks. **float32** format. Use for **high-dimension** data. Good for **click prediction** and **item recommendation**.  
 `Inference pipeline` -> Preprocessing, predictions, and post-processing on **real-time** and **batch** inference requests. Containers: **2-15**.  
 
 ### Note
@@ -302,7 +300,6 @@
 `MapReduce(Amazon EMR)` -> A big data analysis model that **processes data** sets using a parallel algorithm on computer clusters.  
 `EMR File System (EMRFS)` -> An implementation of HDFS that all `Amazon EMR` clusters use for **reading and writing** regular files from Amazon EMR directly to `Amazon S3`.  
 `Random Cut Forest` -> unsupervised, detect **anomalous** data points within a data set, works in `Kinesis Data Analytics`.   
-`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. Scheduling and allocating the **resources**.    
 `K-means` -> Unsupervised, A **cluster** refers to a collection of data points aggregated together because of certain *similarities*. Mandatory parameters: `feature_dim(number of features)` and `k(number of clusters)`, can use for **dimensionality reduction**.  
 `Amazon Quicksight` -> **Anomaly detection**, **forecasting**, **auto-narrative**: customize(personalized dashboard), don't need `SageMaker` for forecasting.  
 `Quantile Binning` -> The process of assigning the **same** number of observations to each **bin**, using for **unevenly** distributed data.   
@@ -423,7 +420,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Increase the *mini-batch size* with the number of *GPUs* **linearly** in order to fully utilize all GPUs.
 
 ### Question Set
-* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(1-OK&2)`
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(1&2 - OK)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -498,16 +495,8 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Recursive Partitioning` -> A statistical method for multivariable analysis(`AWS GLUE`).  
 `AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrates with **existing camera** networks.  
 `Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
-`Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function. Tuning like a **regression** problem.  
+`Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function. Tuning like a **regression** problem, features are statistically *dependent*.  
 `Amazon FSx for Lustre` -> FSx for Lustre **speeds up** your training jobs by serving your `Amazon S3` data to Amazon SageMaker at high speeds, high **throughput** and low **latency**.  
-
-### Kinesis
-| Name | Note |
-| --- | --- |
-| Kinesis Data Stream | Streaming(**real-time**) ingest shards: 1MB/s or 1000 messages/s |
-| Kinesis Data Analytics | **Near real-time** analytics(**real-time SQL query**), can scripts out the **unneeded** data. |
-| Kinesis Data Firehose | **Not real-time**, for **streaming** data(not used to *stream video*) into S3, etc. **Easiest way of Ingestion**, built-in lambda: *JSON* -> *Parquet* or *ORC* |
-| Kinesis Video Stream | Streaming **video**(uses Amazon *S3* for backend storage), **analysis** |
 
 ### Note
 * A single `Amazon SageMaker endpoint` **cannot** serve two different `models`, support deploy different **versions** of the models behind a single endpoint.
@@ -555,8 +544,8 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 | Name | Send multiple | Ingested from multiple | Auto scaling | 
 | --- | --- | --- | --- |
 | Kinesis Data Streams | Yes | Yes | No(manually (`UpdateShardCount`) |
-| kinesis firehose | No | Yes | Yes |
-| Kinesis video stream | No | No | - |
+| kinesis Firehose | No | Yes | Yes |
+| Kinesis Video Stream | No | No | - |
 
 ### L1, L2 Regularation
 | Name | Description |
@@ -575,7 +564,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
  
 ---
 
-`Naive Bayes classifier` -> A collection of **classification** algorithms based on Bayes' Theorem, good for *binary problem*.  
 `Amazon Athena` -> An interactive query service that makes it easy to analyze data directly in Amazon Simple Storage Service (**Amazon S3**) using standard **SQL**. **Serverless**, **Parquet** format.  
 `Amazon EMR` -> **Not serverless**, a managed cluster platform that simplifies running *big data frameworks*, such as **Apache Hadoop** and **Apache Spark**.(File system: *hdfs*, emrfs, local file system)   
 `AWS DeepLens` -> *Hardware*, a deep learning-enabled **video camera**.  
@@ -636,10 +624,43 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Run a **correlation check** of all features against the **target** variable. Remove features with **low** target variable correlation scores. 92
 * `Stratified k-fold cross-validation` for inbalanced dataset with `k=5`(standard value). 100
 
-100
-
 ### Question Set
 * https://www.examtopics.com/exams/amazon/aws-certified-machine-learning-specialty/view/20/
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 26
+`Image Classification` -> CNN, assigning a **label** or class to an entire image, can be used for **identify license plates**.  
+`FM(Factorization Machines)` -> Supervised, a general-purpose supervised learning algorithm that you can use for both **classification** and **regression** tasks. **float32** format. Use for **high-dimension** data. Good for **click prediction** and **item recommendation**.  
+`Naive Bayes classifier` -> A collection of **classification** algorithms based on Bayes' Theorem, good for *binary problem*. It assumes that each input variable is **independent**.  
+`Amazon SageMaker Object Detection` -> MXNet algorithm detects and **classifies** objects in images using a single deep neural network. Require code development. Identify **objects** and their **locations**.  
+`Amazon Augmented AI` -> Implement **human reviews** and audits of ML predictions based on your specific requirements, including multiple reviewers.  
+`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. Scheduling and allocating the **resources**.    
+
+### Kinesis
+| Name | Note |
+| --- | --- |
+| Kinesis Data Stream | Streaming(**real-time**),  *rate*, ingest shards: **1MB/s** or 1000 messages/s |
+| Kinesis Data Analytics | **Near real-time** analytics(**real-time SQL query**), can scripts out the **unneeded** data. |
+| Kinesis Data Firehose | **Not real-time**, for **streaming** data(not used to *stream video*) into S3, etc. **Easiest way of Ingestion**, built-in lambda: *JSON* -> *Parquet* or *ORC* |
+| Kinesis Video Stream | Streaming **video**(uses Amazon *S3* for backend storage), **analysis** |
+
+### Note
+* Select the value of k at the "elbow" ie the point after which the distortion/inertia starts decreasing in a **linear** fashion. 102
+* 104, Kinesis Data Stream speed. 104
+* `Naive Bayes classifier`, features should be strongly **independent**. 105
+* `Amazon Random Cut Forest (RCF)` does not use older records in the stream for machine learning. 108
+* `Amazon SageMaker Object Detection`, data format for Computer Vision algorithms in SageMaker: `RecordIO`. 111
+* `SageMaker` can automatically reformat the data that are stored in `S3`. 113
+* Use `event tracker` in `Amazon Personalize` to include real-time user interactions, adding new training data to the model. 115
+* VPC endpoint policy can limit the access to specific group of user/roles, iam user policy can limit user access other aws service but not secure the traffic. 116
+* `lifecycle configuration` for `SageMaker`, automatica. 121
+* To configure a Docker container to run as an **executable**, use an `ENTRYPOINT` instruction in a Dockerfile. 
+* Jobs submitted to `AWS Batch` are **queued** and executed based on the assigned order of preference, it also offers an automated **retry** mechanism.
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams `(Practice Test 1)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
@@ -655,6 +676,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * Udemy -> AWS Certified Machine Learning Specialty MLS-C01 [NEW 2023] `(20 questions)`
 * Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(20*6 questions)`
 * Machine Learning – Specialty (MLS-C01) Sample Exam Questions `(10 questions)`
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams `(10+25+65 questions)`
 
 ---
 
