@@ -27,6 +27,7 @@
 * [Day 24](#day-24)
 * [Day 25](#day-25)
 * [Day 26](#day-26)
+* [Day 27](#day-27)
 
 ---
 
@@ -78,7 +79,6 @@
 
 ### Note
 * SageMaker, to update an `Endpoint`, you must create a new `EndpointConfig`
-* SageMaker, with `pipe input mode`, dataset is **streamed directly** to training instance, instead of being *downloaded* first.
 * **Parquet** is faster then *csv*. 
 * To use SageMaker training, the data should be split into *training*, *validation*, and *test* sets.
 * Correlation: Feature1(0.64) >(**stronger**) Feature2(-0.85) 
@@ -89,10 +89,9 @@
 ---
 
 ## Day 3
-`Word2Vec` -> A text **classification** algorithm. Word2vec is useful for sentiment analysis, entity recognition, and translation.  
 `ROC(Receiver Operating Characteristic Curve)` -> A graph showing the performance of a **classification model** at all classification *thresholds*. A good ROC: (0, 1)   
 `AUC/ROC(Area Under the ROC)` -> AUC measures the ability of the model to predict a higher score for positive examples as compared to negative examples. For **binary classification model**.  
-`LDA(Latent Dirichlet Allocation)` -> **Unsupervised**, **classification**, a **topic** modelling technique that can classify text in a **document** to a particular topic. Same as `NTM`, "bag-of-words" model, the order of words does **not** matter.  
+`LDA(Latent Dirichlet Allocation)` -> **Unsupervised**, **classification**, a **topic** modelling technique that can classify text in a **document** to a particular topic. Same as `NTM`, "bag-of-words" model, the **order** of words does **not** matter.  
 `Apache Flink` -> A **streaming** dataflow engine that you can use to run real-time stream processing on high-throughput data sources.  
 `Amazon SageMaker BlazingText` -> Provides highly optimized implementations of the **Word2vec(relationships)** and **text classification** algorithms.  
 `Amazon SageMaker NTM(Neural Topic Model)` -> **Unsupervised**, used to organize a corpus of **documents** into topics that contain word **groupings** based on their statistical distribution. Same as `LDA`.  
@@ -229,7 +228,6 @@
 `Kinesis Data Firehose PutRecord API` -> Uses the **name** of the delivery stream and the data **record**.  
 `N-grams` -> A sequence of N words.  
 `Levenstein distance` -> A string metric for measuring the *difference* between two sequences.  
-`AWS Data Pipeline` -> A web service that makes it easy to schedule regular **data movement** and **data processing** activities in the AWS cloud.  
 `Recursive Feature Elimination(REF)` -> A **feature selection** method that fits a model and removes the weakest feature (or features). Use for **overfitting**.  
 `Bar Chart` -> A pictorial representation of data that uses bars to compare different **categories** of data.  
 `Bubble Chart` -> Show relationships between **numeric** variables.  
@@ -457,7 +455,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Amazon SageMaker Linear Learner` -> Supervised, used for solving either **classification** or **regression** problems of **high-dimension** data.  
 `Amazon Macie` -> A **data security service** that uses machine learning (ML) and pattern matching to discover and help protect your sensitive data.  
 `Warm Start` -> Start a *hyperparameter tuning job* using one or more **previous** tuning jobs as a starting point.  
-`Amazon Redshift` -> A fully managed, petabyte-scale data **warehouse service** in the cloud, stores **structured** data. Can use **business intelligence** tools.  
 `Perplexity` and `BLEU score` -> Used for evaluating the performance of the **machine-translated** text.  
 `Logistic regression` -> Supervised, with given specific *features*, predict the outcome as a probability(**binary output**).  
 `K-fold cross validation` -> For **balanced** data, used to **estimate** the performance of the **model** on new data.  
@@ -493,7 +490,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 ## Day 21
 `Peered VPCs` -> A networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. (Data does **not traverse** the **public** internet.)  
 `Recursive Partitioning` -> A statistical method for multivariable analysis(`AWS GLUE`).  
-`AWS Panorama` -> Add **computer vision(CV)** to your existing fleet of cameras with AWS Panorama devices, which integrates with **existing camera** networks.  
 `Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
 `Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function. Tuning like a **regression** problem, features are statistically *dependent*.  
 `Amazon FSx for Lustre` -> FSx for Lustre **speeds up** your training jobs by serving your `Amazon S3` data to Amazon SageMaker at high speeds, high **throughput** and low **latency**.  
@@ -546,12 +542,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 | Kinesis Data Streams | Yes | Yes | No(manually (`UpdateShardCount`) |
 | kinesis Firehose | No | Yes | Yes |
 | Kinesis Video Stream | No | No | - |
-
-### L1, L2 Regularation
-| Name | Description |
-| --- | --- |
-| L1 | Reduce **dimensionality** (by zero the weights of features) |
-| L2 | Adjust **weight** for features (can also use for **underfitting**) |
 
 ### Question Set
 * Udemy -> AWS Certified Machine Learning Specialty Practice Exams 2023 `(5-ok&6-ok)`
@@ -636,31 +626,57 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 `Naive Bayes classifier` -> A collection of **classification** algorithms based on Bayes' Theorem, good for *binary problem*. It assumes that each input variable is **independent**.  
 `Amazon SageMaker Object Detection` -> MXNet algorithm detects and **classifies** objects in images using a single deep neural network. Require code development. Identify **objects** and their **locations**.  
 `Amazon Augmented AI` -> Implement **human reviews** and audits of ML predictions based on your specific requirements, including multiple reviewers.  
-`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. Scheduling and allocating the **resources**.    
 
 ### Kinesis
 | Name | Note |
 | --- | --- |
-| Kinesis Data Stream | Streaming(**real-time**),  *rate*, ingest shards: **1MB/s** or 1000 messages/s |
+| Kinesis Data Stream | Streaming(**real-time**),  *rate*, ingest shards: **1000 KB/s** or 1000 messages/s |
 | Kinesis Data Analytics | **Near real-time** analytics(**real-time SQL query**), can scripts out the **unneeded** data. |
 | Kinesis Data Firehose | **Not real-time**, for **streaming** data(not used to *stream video*) into S3, etc. **Easiest way of Ingestion**, built-in lambda: *JSON* -> *Parquet* or *ORC* |
 | Kinesis Video Stream | Streaming **video**(uses Amazon *S3* for backend storage), **analysis** |
 
 ### Note
-* Select the value of k at the "elbow" ie the point after which the distortion/inertia starts decreasing in a **linear** fashion. 102
-* 104, Kinesis Data Stream speed. 104
+* Select the value of `k` at the "elbow" ie the point after which the distortion/inertia starts decreasing in a **linear** fashion. 102
+* Kinesis Data Stream speed. 104
 * `Naive Bayes classifier`, features should be strongly **independent**. 105
-* `Amazon Random Cut Forest (RCF)` does not use older records in the stream for machine learning. 108
+* `Amazon Random Cut Forest (RCF)` does **not** use *older* records in the stream for machine learning. 108
 * `Amazon SageMaker Object Detection`, data format for Computer Vision algorithms in SageMaker: `RecordIO`. 111
-* `SageMaker` can automatically reformat the data that are stored in `S3`. 113
-* Use `event tracker` in `Amazon Personalize` to include real-time user interactions, adding new training data to the model. 115
-* VPC endpoint policy can limit the access to specific group of user/roles, iam user policy can limit user access other aws service but not secure the traffic. 116
-* `lifecycle configuration` for `SageMaker`, automatica. 121
+* `SageMaker` can automatically **reformat** the data that are stored in `S3`. 113
+* Use **event tracker** in `Amazon Personalize` to include *real-time* user interactions, adding new training data to the model. 115
+* `VPC endpoint` policy can limit the access to specific group of **user/roles**, `iam user policy` can limit user access other aws **service** but not secure the traffic. 116
+* `lifecycle configuration` for `SageMaker`, automatic. 121
 * To configure a Docker container to run as an **executable**, use an `ENTRYPOINT` instruction in a Dockerfile. 
 * Jobs submitted to `AWS Batch` are **queued** and executed based on the assigned order of preference, it also offers an automated **retry** mechanism.
 
 ### Question Set
 * Udemy -> AWS Certified Machine Learning Specialty Practice Exams `(Practice Test 1)`
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 27
+`Word2Vec` -> A text **classification** algorithm. Word2vec is useful for sentiment analysis, entity recognition, and translation, operates on **individual words**.  
+`Amazon Redshift` -> A fully managed, petabyte-scale data **warehouse service** in the cloud, stores **structured** data from `EMR`. Can use **business intelligence** tools.  
+`AWS Data Pipeline` -> A web service that makes it easy to schedule regular **data movement** and **data processing** activities in the AWS cloud. Including aws **SQL** service.  
+`AWS Batch` -> AWS Batch helps you to run batch computing workloads on the AWS Cloud. **Automate** the batch *data preprocessing* and ML training aspects of the *pipeline*. Scheduling and allocating the **resources**.    
+`AWS Panorama` -> Add **computer vision(CV)** to your **existing** fleet of cameras with AWS Panorama devices, which integrates with **existing camera** networks.  
+`Normalization Transformation` -> Handle features that vary in different **magnitude**.  
+
+### L1, L2 Regularation
+| Name | Description |
+| --- | --- |
+| L1 | Reduce **dimensionality** (by zero the weights of features), not available to `Object2Vec` |
+| L2 | Adjust **weight** for features (can also use for **underfitting**) |
+
+### Note
+* SageMaker, with `pipe input mode`, dataset is **streamed directly** to training instance, instead of being *downloaded* first. Does **not** support *Apache Parquet* data format.
+* `AWS Batch` is **not** a valid destination of *S3 Events*.
+* You need to wait a minimum of **30 days** before you can transition from the `S3 Standard` tier to `S3 Standard-IA`.
+* `Amazon Kinesis Data Firehose` **buffers** incoming streaming data to a certain size or for a certain period of **time** before delivering it to destinations. 
+* `Amazon Kinesis Data Streams`'s **Data Retention Period**, the minimum value for it is 24 hours.
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams `(Practice Test 3)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
