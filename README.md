@@ -28,6 +28,7 @@
 * [Day 25](#day-25)
 * [Day 26](#day-26)
 * [Day 27](#day-27)
+* [Day 28](#day-28)
 
 ---
 
@@ -115,7 +116,6 @@
 
 ## Day 4 
 `Kinesis Producer Library (KPL)` -> Simplifies producer application development, allowing developers to achieve high write **throughput** to a *Kinesis Data Stream*.   
-`Kinesis Client Library(KCL)` -> Acts as an intermediary between your record **processing** logic and *Kinesis Data Streams*. It **cannot** be used on the **source system** to produce real time data.  
 `Data Augmentation` -> A set of techniques to artificially **increase** the amount of data by generating **new data** points from existing data.  
 `Image localization` -> Aims to locate the main **single** (or most visible) **object** in an image.  
 `Instance Segmentation` -> Deals with detecting instances of objects and demarcating their **boundaries**.  
@@ -277,12 +277,10 @@
 `Canary Deployment` -> In the beginning, the **current** version receives **100%** of user traffic.  
 `Mapping technique` -> For **ordinal**, **categorical** data.  
 `Stratified K-fold cross validation` -> For **unbalanced** data to evaluate the model performance.  
-`Amazon SageMaker Autopilot` -> **Automatically** trains and tunes the best machine learning models for *classification* or *regression*, **tabular data(csv)** format is required.  
 `Principal component analysis(PCA)` -> A learning algorithm that **reduces** the **dimensionality** (number of features) within a dataset, can also **visualize** data directly.  
 
 ### Note
 * Selete the model has less **penalties**.
-* Be careful for the **axis** of `confusion matrix`.
 * `Softmax activation` predicts for **one class** among other classes, whereas `sigmoid activation` predicts for **each class** independent of one another.
 * `SageMaker Estimator`, `local mode: instance_type='local'` can quickly experiment with the models without having to wait for the training data to be **loaded**.
 
@@ -488,7 +486,6 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ---
 ## Day 21
-`Peered VPCs` -> A networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. (Data does **not traverse** the **public** internet.)  
 `Recursive Partitioning` -> A statistical method for multivariable analysis(`AWS GLUE`).  
 `Sockeye` -> A sequence-to-sequence framework for **Neural Machine Translation** based on Apache MXNet Incubating.  
 `Bayesian optimization` -> Build a probability model of the objective function and uses it to select **hyperparameter** to evaluate in the true objective function. Tuning like a **regression** problem, features are statistically *dependent*.  
@@ -632,7 +629,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 | --- | --- |
 | Kinesis Data Stream | Streaming(**real-time**),  *rate*, ingest shards: **1000 KB/s** or 1000 messages/s |
 | Kinesis Data Analytics | **Near real-time** analytics(**real-time SQL query**), can scripts out the **unneeded** data. |
-| Kinesis Data Firehose | **Not real-time**, for **streaming** data(not used to *stream video*) into S3, etc. **Easiest way of Ingestion**, built-in lambda: *JSON* -> *Parquet* or *ORC* |
+| Kinesis Data Firehose | **Not real-time**, for **streaming** data(not used to *stream video*) into S3, etc. **Easiest way of Ingestion**, built-in lambda: *JSON* -> *Parquet* or *ORC*, can **not** use with `Glue` |
 | Kinesis Video Stream | Streaming **video**(uses Amazon *S3* for backend storage), **analysis** |
 
 ### Note
@@ -643,7 +640,7 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 * `Amazon SageMaker Object Detection`, data format for Computer Vision algorithms in SageMaker: `RecordIO`. 111
 * `SageMaker` can automatically **reformat** the data that are stored in `S3`. 113
 * Use **event tracker** in `Amazon Personalize` to include *real-time* user interactions, adding new training data to the model. 115
-* `VPC endpoint` policy can limit the access to specific group of **user/roles**, `iam user policy` can limit user access other aws **service** but not secure the traffic. 116
+* `VPC endpoint policy` can limit the access to specific group of **user/roles**, `iam user policy` can limit user access other aws **service** but not secure the traffic. 116
 * `lifecycle configuration` for `SageMaker`, automatic. 121
 * To configure a Docker container to run as an **executable**, use an `ENTRYPOINT` instruction in a Dockerfile. 
 * Jobs submitted to `AWS Batch` are **queued** and executed based on the assigned order of preference, it also offers an automated **retry** mechanism.
@@ -677,6 +674,29 @@ Where `TP/FP` - `True/False Positive`, `FP/FN` - `False Positive/Negative`, resp
 
 ### Question Set
 * Udemy -> AWS Certified Machine Learning Specialty Practice Exams `(Practice Test 3)`
+
+[Top](#aws-machine-learning-specialty-cheatsheet)
+
+---
+## Day 28
+`Amazon Redshift ML` -> Create, train, and deploy machine learning (ML) **models** using familiar **SQL** commands.  
+`Amazon SageMaker Autopilot` -> **Automatically** trains and tunes the best machine learning models for *classification* or *regression*, **tabular data(csv)** format is required. **LEAST** operational overhead.  
+`Peered VPCs` -> A networking connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses. (Data does **not traverse** the **public** internet.)  
+`Kinesis Client Library(KCL)` -> Acts as an intermediary between your record **processing** logic, **reading** data and *Kinesis Data Streams*. It **cannot** be used on the **source system** to produce real time data.  
+`Custom entity recognition` -> Extends the capability of Amazon Comprehend, identify your specific new entity types that are not in the preset generic entity types.  
+`Levenshtein distance` -> For example, the word "raed" is closer to the word "read" than the word "baed". This is more suited for applications like autocorrect.  
+
+### Note
+* `SageMaker` available data format, *JPG* and *CSV*.
+* `Kinesis Data Firehose` is **not** a valid streaming source for a streaming ETL job in `AWS Glue`.
+* Ensure that your containers are `nvidia-docker` compatible.
+* Adjust the score *threshold* to tune the classification model performance.
+* Use *pronunciation lexicons* in `Polly`.
+* `Random Cut Forest (RCF)` can also be used in **time-series** data prediction.
+* `Data Pipeline` does not support external **MySQL** databases. 
+
+### Question Set
+* Udemy -> AWS Certified Machine Learning Specialty Practice Exams `(Practice Test 2)`
 
 [Top](#aws-machine-learning-specialty-cheatsheet)
 
