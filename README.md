@@ -1,4 +1,5 @@
 # AWS Machine Learning Specialty Cheatsheet
+2023/6/19 Passed
 
 ## Table Of Contents
 * [Day 1](#day-1)  
